@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="main_controller">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	  <meta charset="utf-8">
+      <!-- Page title set in pageTitle directive -->
+      <title page-title></title>
+	  <meta name="generator" content="Bootply" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!-- Bootstrap and Fonts -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="vendors/font-awesome/css/font-awesome.css" rel="stylesheet">
+      <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet'>
+      <!-- Main CSS file -->
+      <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	  <![endif]-->
+	  <link href="css/styles.css" rel="stylesheet">
+   </head>
+   <!-- ControllerAs syntax -->
+	<body>
+      <!-- Wrapper-->
+      <div ng-hide="page_loading" id="wrapper">
+         <!-- Page wraper -->
+         <div id="page-wrapper" class="gray-bg">
+			<!--Header -->
+			<div ng-if="showHeader" ng-include="'templates/common/header.html'"></div>
+			<!-- Navigation -->
+			<div ng-include="'templates/common/navigation.html'"></div>
+            <!--Main Content Container -->
+			<div data-ng-view id="ng-view" ></div>
+            <!-- Footer -->
+			<div ng-if="show2ndFooter" ng-include="'templates/common/footer2.html'"></div>
+            <div ng-include="'templates/common/footer.html'"></div>
+         </div>
+         <!-- End page wrapper-->
+      </div>
+      <!-- End wrapper-->
+      <!-- jQuery and Bootstrap -->
+      <script src="vendors/jquery/jquery-2.1.1.min.js"></script>
+      <script src="vendors/plugins/jquery-ui/jquery-ui.js"></script>
+      <script src="vendors/bootstrap/bootstrap.min.js"></script>
+      <!-- Angular scripts-->
+      <script src="vendors/angular/angular.min.js"></script>
+      <script src="vendors/angular/angular-cookies.min.js"></script>
+      <script src="vendors/angular/angular-route.min.js"></script>
+      <script src="vendors/angular/angular-sanitize.min.js"></script>
+      <script src="vendors/angular/angular-touch.min.js"></script>
+      <script src="vendors/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+      <!-- Angular Dependiences -->
+      
+      <!-- Load custom scripts via RequireJS -->
+      <script src="vendors/require.js" data-main="js/main"></script>
+   </body>
+</html>

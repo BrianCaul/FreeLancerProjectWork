@@ -1,0 +1,305 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2>Add Alumni Profile</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="index.html">Home</a>
+         </li>
+         <li>
+            <a href="#/alumni/overview" >Alumni Overview</a>
+         </li>
+         <li class="active">
+            <strong>Add</strong>
+         </li>
+      </ol>
+   </div>
+   <div class="col-lg-2">
+      <br>
+      <button type="submit" style="margin-left:20px;margin-top:10px;" ng-click="saveUser()" class="btn btn-primary pull-right">Save New User</button>
+   </div>
+</div>
+<div class="wrapper wrapper-content">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>User Profile</h5>
+            </div>
+            <div class="ibox-content">
+               <tabset>
+                  <tab heading="Name & Personal"  active="tab.active"  class="dsads">
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-2" style="text-align: center; margin-left: 0px; margin-right: 0px; padding-right: 0px; padding-left: 0px;">
+                           <img width="170px" height="170px" ng-src="{{user.picture | user_image}}"/><br/>
+                           <label>Upload Profile Picture:</label>
+                           <input type="file" ng-file-select="onFileSelect($files)" class="upload" multiple/>
+                        </div>
+                        <div class="col-lg-5">
+                           <div class="well">
+                              <div class="form-group"><label>First Name (*)</label>
+                                 <input type="text" name="firstName" ng-model="user.firstName" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Last Name (*)</label>
+                                 <input type="text" name="lastName" ng-model="user.lastName" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Middle Name</label>
+                                 <input type="text" name="midName" ng-model="enrollment.middle_name" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Date of Birth</label>
+                                 <input type="date" name="dob" ng-model="user.dob" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                 <label>Gender</label>
+                                 <select name="emailType" ng-options="gender as gender for gender in genders" ng-model="user.gender" class="form-control">
+                                    <option style="display:none" value="">Select Gender...</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-5">
+                           <div class="well">
+                              <div class="form-group"><label>Title</label>
+                                 <input type="text" name="title" ng-model="enrollment.title1" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Title 2</label>
+                                 <input type="text" name="title2" ng-model="enrollment.title2" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Former Last Name</label>
+                                 <input type="text" name="formerLastName" ng-model="enrollment.former_last_name" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Nick Name</label>
+                                 <input type="text" name="nickName" ng-model="enrollment.nickname" class="form-control">
+                              </div>
+                              <div class="form-group"><label>Suffix</label>
+                                 <input type="text" name="suffix" ng-model="enrollment.suffix1" class="form-control">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+                  <tab heading="Email & Phone"  class="dsads">
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-6">
+                           <div class="well">
+                              <div ng-repeat="email in enrollment.emails" class="well interior" style="cursor:default;" >
+                                 <p style="margin-bottom:0px;">{{email.label}} : {{email.value}} <i title="Not Verified By User" style="color:red;margin-top:3px;" class="fa fa-warning pull-right"></i> </p>
+                              </div>
+                              <div class="well interior" style="cursor:default;" >
+                                 <button style="font-size:10px;margin-top:-8px;" class="btn btn-primary pull-right" ng-click="addEmail()">Add</button>
+                                 <div class="form-group"><label>Email (*):</label>
+                                    <input type="text" name="newEmail" ng-model ='email.value' class="form-control">
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Type (*):</label>
+                                    <select name="emailType" ng-options="type as type for type in selecttypes" ng-model="email.label" class="form-control">
+                                       <option style="display:none" value="">Select Type...</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                           <div class="well">
+                              <div ng-repeat="phone in enrollment.phone_numbers" class="well interior" style="cursor:default;" >
+                                 <p style="margin-bottom:0px;">{{phone.label}} : {{phone.value}} <i title="Not Verified By User" style="color:red;margin-top:3px;" class="fa fa-warning pull-right"></i> </p>
+                              </div>
+                              <div class="well interior" style="cursor:default;" >
+                                 <button style="font-size:10px;margin-top:-8px;" ng-click="addPhone()" class="btn btn-primary pull-right">Add</button>
+                                 <div class="form-group"><label>Phone (*):</label>
+                                    <input type="text" name="newPhone" ng-model="phone.value" class="form-control">
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Type (*):</label>
+                                    <select name="phoneType" ng-options="type as type for type in selecttypes" ng-model="phone.label" class="form-control">
+                                       <option style="display:none" value="">Select Type...</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+                  <tab heading="Address History"  class="dsads">
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="well">
+                              <div ng-repeat="address in enrollment.addresses" style="cursor:default;" class="well interior">
+                                 <p style="margin-bottom:0px;"> <span ng-show="address.type=='Primary'" style="margin-right:10px;" class="label label-primary">{{address.type}}</span>
+                                    <span ng-show="address.type!='Primary'" style="margin-right:10px;" class="label label-default">{{address.type}}</span>  {{address.dateIn}} - {{address.line1}} {{address.line2}} {{address.line3}}, {{address.city}}, {{address.county}}. {{address.country}} 
+                                 </p>
+                              </div>
+                              <div class="well interior" style="cursor:default;" >
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Moved In (*):</label>
+                                          <input type="date" name="movedIn" ng-model="address.dateIn" class="form-control">
+                                       </div>
+                                       <div class="form-group">
+                                          <label>Type (*):</label>
+                                          <select ng-model="address.type" name="addressType" ng-options="type as type for type in selecttypes" class="form-control">
+                                             <option style="display:none" value="">Select Type...</option>
+                                          </select>
+                                       </div>
+                                       <br>
+                                       <div class="form-group"><label>Address Line 1 (*):</label>
+                                          <input type="text" name="addrLine1"  ng-model="address.line1" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Address Line 2:</label>
+                                          <input type="text" name="addrLine2"  ng-model="address.line2" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Address Line 3:</label>
+                                          <input type="text" name="addrLine3"  ng-model="address.line3" class="form-control">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <button style="font-size:10px;margin-top:-8px;" ng-click="addAddress()" class="btn btn-primary pull-right">Add</button>
+                                       <div class="form-group"><label>Moved Out:</label>
+                                          <input type="date" name="movedOut"  ng-model="address.dateOut" class="form-control">
+                                       </div>
+                                       <div class="form-group">
+                                          <label>Status (*):</label>
+                                          <select name="addressStatus" ng-options="status as status for status in selectstatuses" ng-model="address.status" class="form-control">
+                                             <option style="display:none" value="">Select Status...</option>
+                                          </select>
+                                       </div>
+                                       <br>
+                                       <div class="form-group"><label>City (*):</label>
+                                          <input type="text" name="city"  ng-model="address.city"  class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>County (*):</label>
+                                          <input type="text" name="county"  ng-model="address.county" class="form-control">
+                                       </div>
+                                       <div class="form-group">
+                                          <label>Country (*):</label>
+                                          <select style="width: 100%;font-size: 14px;padding:5px;" id="countries" name="countries" ng-model="address.country"  ng-options="country.name as country.name for country in countries">
+                                             <option style="display:none" value="">Select Country...</option>
+                                          </select>
+                                       </div>
+                                       <div class="form-group"><label>Postcode:</label>
+                                          <input type="text" name="postcode" ng-model="address.postcode" class="form-control">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+                  <tab heading="Education"  class="dsads">
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="well">
+                              <div class="well interior" ng-repeat="school in enrollment.schools" style="cursor:default;" >
+                                 <p>  <strong>{{school.organization_name}}</strong></p>
+                                 <p style="margin-bottom:0px;">Year of {{school.graduation_year}} - {{school.college}} {{school.start}} - {{school.end | jobdate}} </p>
+                              </div>
+                              <div class="well interior">
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Organization Name (*):</label>
+                                          <input type="text" name="organizationName" ng-model="school.organization_name" class="form-control">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <button style="font-size:10px;margin-top:-8px;" ng-click="addSchool()" class="btn btn-primary pull-right">Add</button>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="form-group"><label>Organization Bio:</label>
+                                          <textarea type="text" name="orgBio" ng-model="school.bio" class="form-control"></textarea>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>College:</label>
+                                          <input type="text" name="college" ng-model="school.college" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Degree:</label>
+                                          <input type="text" name="degree" ng-model="school.degree" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Department:</label>
+                                          <input type="text" name="department" ng-model="school.department" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Core Subject:</label>
+                                          <input type="text" name="coreSubject" ng-model="school.subjects" class="form-control">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Start Date (*):</label>
+                                          <input type="date" name="startDate" ng-model="school.start" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Graduation Year:</label>
+                                          <input type="number" min='1900' max='2200' step='1' value='2000' name="gradDate" ng-model="school.graduation_year"  class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Finish Date:</label>
+                                          <input type="date" name="finishDate" ng-model="school.end" class="form-control">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+                  <tab heading="Work Experience"  class="dsads">
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-12">
+                           <div class="well">
+                              <div class="well interior" ng-repeat="job in enrollment.jobs" style="cursor:default;" >
+                                 <p>  <strong>{{job.organization_name}}</strong></p>
+                                 <p style="margin-bottom:0px;">{{job.bio}} - {{job.start}} - {{job.end | jobdate}} </p>
+                              </div>
+                              <div class="well interior">
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Organization Name (*):</label>
+                                          <input type="text" name="organizationName" ng-model="job.organization_name" class="form-control">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <button style="font-size:10px;margin-top:-8px;" ng-click="addJob()" class="btn btn-primary pull-right">Add</button>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Sector:</label>
+                                          <input type="text" name="sector" ng-model="job.sector" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Job Title:</label>
+                                          <input type="text" name="jobTitle" ng-model="job.bio" class="form-control">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group"><label>Start Date (*):</label>
+                                          <input type="date" name="startDate" ng-model="job.start" class="form-control">
+                                       </div>
+                                       <div class="form-group"><label>Finish Date:</label>
+                                          <input type="date" name="finishDate" ng-model="job.end" class="form-control">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+               </tabset>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div ng-if="modalAppear" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;background-color: rgba(0,0,0,0.5);"> 
+   <div style="border:solid 1px black;position:fixed;left:50%;top: 50%;background-color: white;z-index: 100;height: 400px;margin-top: -200px;width: 600px;margin-left: -300px;">
+
+       <div style=" background: #E4E4E4;overflow: hidden;width:100%px;height:90%;"><img-crop image="myImage" area-type="square" result-image="user.picture"></img-crop></div><br/>
+       <button type="submit" ng-click="doneModal()" style="margin-right:10px;margin-top:-15px;" class="btn btn-primary pull-right">Finish</button> <button type="submit"  style="margin-right:10px;margin-top:-15px;" ng-click="cancelModal()" class="btn btn-default pull-right">Cancel</button>
+   </div>
+ <div>

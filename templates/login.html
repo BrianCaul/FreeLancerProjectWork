@@ -1,0 +1,53 @@
+<div class="middle-box text-center  animated fadeInDown" style="top:40%;">
+   <div>
+      <div >
+         <h1 class="logo-name"><img class="organizations_logo_small" ng-src='{{organization.logo | organization_logo}}' /></h1>
+      </div>
+      <h3 style="color:white;">{{organization.name | organization_name}}</h3>
+      <p  style="color:white;">Reconnect with your alumni and manage your engagements with your {{organization.name | organization_name}} Admin Portal.
+      </p>
+      <p  style="color:white;margin-bottom:15px;" ng-if="!changePass">Login. To see it in action.</p>
+       <p  style="color:white;margin-bottom:15px;" ng-if="changePass">Please enter your username and a new password below</p>
+      <div ng-repeat="alert in alerts">
+        <alert type="danger" >{{alert.msg}}</alert>
+      </div>
+      <div ng-if="passwordChanged"> <alert type="success" >Password successfully changed!</alert></div>
+      <div class="form-group">
+         <input type="text" ng-model="credentials.username" class="form-control" placeholder="Username" required="">
+      </div>
+      <div class="form-group">
+         <input type="password" ng-if="!changePass" ng-model="credentials.password" ng-enter="loginUser()" class="form-control" placeholder="Password" required="">
+         <input type="password" ng-if="changePass" ng-model="credentials.password" ng-enter="changePassword()" class="form-control" placeholder="New Password" required="">
+      </div>
+      <div class="form-group">
+          <input type="password" ng-if="changePass" ng-model="credentials.confirmpassword" ng-enter="changePassword()" class="form-control" placeholder="Confirm New Password" required="">
+      </div>
+      <a ng-if="!changePass" ng-click="loginUser()" class="btn btn-primary block full-width m-b">Login</a>
+      <a ng-if="changePass" ng-click="changePassword()" class="btn btn-primary block full-width m-b">Update Password</a>
+      <a href="" ng-click="openForgotPassword()"><small>Forgot password?</small></a>
+      <br>  <br>
+      <div ng-show="forgotPasswordView" class="well">
+         <div style="border-bottom: none;" >
+            <h3>Find your account</h3>
+         </div>
+         <div >
+            <p>Enter the Email Address Registered to this admin portal.</p>
+            <div style="min-width: 100%;" class="input-group">
+               <input id="login-username" style="font-family: inherit; width: 100%; -webkit-border-radius: 3px !important; -moz-border-radius: 3px !important; border-radius: 3px !important; min-width: 100%;" ng-model="pw_email.email" type="text" class="form-control" name="username" value="" placeholder="Email">                                        
+            </div>
+         </div>
+         <div style="border-top: none;"class="modal-footer">
+            <button style="padding: 1% 10%; " class="btn btn-twitter" ng-click="forgot_password_email()">Reset Password</button>
+         </div>
+      </div>
+      <div ng-show="EmailSentView" class="well">
+         <div style="border-bottom: none;" >
+            <h3>On the Way...</h3>
+         </div>
+         <div >
+            <p>An email is on it's way to {{pw_email.email}}. Follow the instructions to reset the password.</p>
+         </div>
+      </div>
+      <p  style="color:white;" class="text-muted text-center"><small>Don't have an account? Please contact your account manager or <a href="mailto:suport@konnectagain.com">KonnectAgain Support</a></small></p>
+   </div>
+</div>

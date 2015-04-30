@@ -1,0 +1,73 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2>Import Alumni Records</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="index.html">Home</a>
+         </li>
+         <li>
+            <a href="#/alumni/overview">Alumni Overview</a>
+         </li>
+         <li class="active">
+            <strong>Import Alumni</strong>
+         </li>
+      </ol>
+   </div>
+   <div class="col-lg-2">
+   </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+<div class="row">
+   <p style="margin-left:20px;">Please download this sample formatted csv file to use to upload your alumni data : <a href='https://s3-eu-west-1.amazonaws.com/kafileuploads/uploadsample.csv'>Sample CSV File</a></p>
+</div>
+<div class="row">
+<div class="col-lg-12">
+   <div class="ibox float-e-margins">
+      <div class="ibox-title" style="margin:0px;padding:0px;height:0px;">
+      </div>
+      <div class="ibox-content">
+         <div class="row">
+            <div class="row">
+               <div class="col-lg-5">
+                  <div class="row">
+                  </div>
+               </div>
+               <div class="col-lg-2">
+                  <div ng-hide="loader == 'true'" class="row">
+                     <input  type="file" on-read-file="showContent($fileContent)" />
+                  </div>
+               </div>
+               <div class="col-lg-5">
+                  <div class="row">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <br/>
+         <div class="row" style="overflow:auto;">
+            <h3 style="margin-left:5px">Your Uploaded Data</h3>
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th ng-repeat="header in headers">
+                        <select style="margin-left:-5px;" ng-model="header.name" ng-options="field for field in selectableFields">
+                           <option style="display:none" value="">Please Match...</option>
+                        </select>
+                     </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="line in lines | limitTo:3">
+                     <td ng-repeat="cell in line">
+                        {{cell.value}}
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <a ng-click="uploadAll()" class="btn btn-primary" style="margin-top:10px;float:right;">Upload All</a>
+         <br/>
+         <br/>
+      </div>
+   </div>
+</div>

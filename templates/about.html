@@ -1,0 +1,164 @@
+<div class="wrapper wrapper-content">
+   <div ng-show="dash_loading" class="row">
+      <alert type="info" >Loading Please wait....</alert>
+   </div>
+   <div ng-hide="dash_loading" class="row">
+      <div class="col-lg-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <span class="label label-success pull-right">Total</span>
+               <h5>Alumni</h5>
+            </div>
+            <div class="ibox-content">
+               <h1 class="no-margins">{{organization.alumni_number | number:0}}</h1>
+               <div class="stat-percent font-bold text-success">{{organization.alumni_increase | number:2}}% 
+                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
+                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
+               </div>
+               <small>Monthly Change</small>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <span class="label label-info pull-right">Total</span>
+               <h5>Active Alumni</h5>
+            </div>
+            <div class="ibox-content">
+               <h1 class="no-margins">{{organization.active_number | number:0}}</h1>
+               <div class="stat-percent font-bold text-info">{{organization.active_increase | number:2}}% 
+                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
+                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
+               </div>
+               <small>Monthly Change</small>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <span class="label label-primary pull-right">Total</span>
+               <h5>Pending Alumni</h5>
+            </div>
+            <div class="ibox-content">
+               <h1 class="no-margins">{{organization.pending_number | number:0}}</h1>
+               <div class="stat-percent font-bold text-navy">{{organization.pending_increase | number:2}}% 
+                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
+                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
+               </div>
+               <small>Monthly Change</small>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <span class="label label-danger pull-right">Total</span>
+               <h5>Inactive Alumni</h5>
+            </div>
+            <div class="ibox-content">
+               <h1 class="no-margins">{{organization.inactive_number | number:0}}</h1>
+               <div class="stat-percent font-bold text-danger">{{organization.inactive_increase | number:2}}% 
+                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
+                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
+               </div>
+               <small>Monthly Change</small>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div ng-hide="dash_loading" class="row">
+      <div class="col-lg-4">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>Fundraising Campaigns</h5>
+               <a href="#/donations/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
+            </div>
+            <div class="ibox-content">
+               <table ng-if="donationcampaigns.length > 0" class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th>Campaign</th>
+                        <th>End Date</th>
+                        <th>Donations</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="campaign in donationcampaigns | limitTo: 3">
+                        <td><a ng-href="#/donations/detail/{{campaign.id}}" title="{{campaign.title}}">{{campaign.title | characters:13 :true}}</a></td>
+                        <td><time datetime="campaign.end_date"></time></td>
+                        <td ng-show="campaign.currency == 'gbp'">£{{campaign.raised}}</td>
+                        <td ng-show="campaign.currency == 'usd'">${{campaign.raised}}</td>
+                        <td ng-show="campaign.currency == 'eur'">€{{campaign.raised}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p ng-if="donationcampaigns.length == 0">
+                  You have no Fundraising Campaigns. <br><br>
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>Groups</h5>
+               <a href="#/groups/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
+            </div>
+            <div class="ibox-content">
+               <table ng-if="groups.length > 0" class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Active Alumni</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr  ng-repeat="group in groups  | limitTo: 3">
+                        <td><a ng-href="#/groups/{{group.id}}" title="{{group.name}}">{{group.name | characters:13 :true}}</a></td>
+                        <td>{{group.groupmember_count}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p ng-if="groups.length == 0">
+                  You have no Groups. <br><br>
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-4">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>Events</h5>
+               <a href="#/events/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
+            </div>
+            <div class="ibox-content">
+               <table ng-if="events.length > 0" class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Attending</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="event in events  | limitTo: 3">
+                        <td><a ng-href="#/events/detail/{{event.id}}" title="{{event.title}}">{{event.title | characters:13 :true}}</a></td>
+                        <td><time datetime="event.start_date"></time></td>
+                        <td>{{event.attendees.length}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p ng-if="events.length == 0">
+                  You have no Events. <br><br>
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>

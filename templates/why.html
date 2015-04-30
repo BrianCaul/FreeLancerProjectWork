@@ -1,0 +1,363 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2>Profile</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="index.html">Home</a>
+         </li>
+         <li>
+            <a href="#/alumni/overview" >Alumni Overview</a>
+         </li>
+         <li class="active">
+            <strong>Profile</strong>
+         </li>
+      </ol>
+   </div>
+   <div class="col-lg-2">
+   </div>
+</div>
+<div class="wrapper wrapper-content">
+   <div ng-show="alumni_loading" class="row">
+      <alert type="info" >Loading Please wait....</alert>
+   </div>
+   <div ng-hide="alumni_loading"class="row animated fadeInRight">
+      <div class="col-md-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title" style="margin:0px;padding:0px;height:0px;">
+            </div>
+            <div>
+               <div class="ibox-content no-padding border-left-right">
+                  <div class="square_image_container">
+                     <img alt="image" class="square_image img-responsive full-width" ng-src="{{person.user.picture  | user_image}}">
+                  </div>
+               </div>
+               <div class="ibox-content profile-content">
+                  <h3><strong>{{person.user.display_name}}</strong></h3>
+                  <div class="m-t-xs font-bold" title="{{person.user.jobTitle}}">{{person.user.jobTitle}}</div>
+                  <br/>
+                  <p class="small font-bold">
+                     <span ng-repeat="tag in person.tags" tooltip="{{tag.description}}"><i ng-hide="editTags" class="fa fa-circle text-warning"></i>
+                     <a ng-show="editTags" ng-click="remove_tag($index, tag)"><i class="fa fa-close"></i></a> {{tag.name}}
+                     <span ng-if="$index != person.tags.length()">,</span> </span> 
+                     <a href="" ng-click="editTagsOpen()"><span ng-if="person.tags.length < 1">Add a tag </span><i  style="cursor:pointer;" class="fa fa-pencil-square-o"></i></a>
+                  </p>
+                  <div  ng-show="editTags"class="row small" style="margin-bottom:10px;">
+                     <div class="col-lg-12">
+                        <label style="margin-bottom:10px;"> Add Another Tag:  <a href="" ng-click="editTagsOpen()"><i  style="cursor:pointer;" class="fa fa-close"></i></a></label>
+                        <table >
+                           <tbody>
+                              <tr ng-repeat="tag in tags">
+                                 <td><a ng-click="add_tag($index, tag)"><i class="fa fa-plus"></i></a>
+                                    <span tooltip="{{tag.description}}">{{tag.name}}</span>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <p style="margin-bottom:2px;" title="{{person.user.email}}"><i style="margin-right:10px"class="fa fa-envelope-o"></i>{{person.user.email | email | characters:22 }}</p>
+                  <p style="margin-bottom:2px;" title="{{person.user.numbers[0].value}}"> <i style="margin-right:10px"class="fa fa-phone"></i> {{person.user.numbers[0].value | phone}}</p>
+                  <p style="margin-bottom:10px;" title="{{person.user.address}}"> <i style="margin-right:11px"class="fa fa-map-marker"></i> {{person.user.address | location}}</p>
+<!--                   <p class="pull-right" style="margin-right:10px;"><i style="margin-right:5px" class="fa fa-facebook-square fa-lg"></i> <i style="margin-right:5px" class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-twitter-square fa-lg"></i></p> -->
+                  <br/>
+                  <div class="row" style="margin-top:10px;">
+                     <div class="col-md-6">
+                        <i  style="float:left;"  class="fa fa-envelope"></i>
+                        <h5  style="float:left; margin-left:5px; margin-top:0px;" ><strong>{{person.posts.length}}</strong> Posts</h5>
+                     </div>
+                     <div class="col-md-6">
+                        <i style="float:left;" class="fa fa-money"></i>
+                        <h5 style="float:left; margin-left:5px; margin-top:0px;" ><strong>{{person.payments.length}}</strong> Donations</h5>
+                     </div>
+                     <div class="col-md-1"></div>
+                  </div>
+                  <div class="user-button">
+                     <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5 no-padding" style="margin-left:10px;margin-right:10px;">
+                           <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Message</button>
+                        </div>
+                        <div class="col-md-5 no-padding">
+                           <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-coffee"></i> Buy Coffee</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h5>Fundraising Campaigns</h5>
+            </div>
+            <div>
+               <div class="ibox-content"  style="padding-left:2px;padding-right:2px">
+                  <table class="table table-striped">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Donation</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="payment in person.payments">
+                           <td>{{payment.donation_campaign.title}}</td>
+                           <td ng-show="payment.currency =='eur'">€{{payment.amount}}</td>
+                           <td ng-show="payment.currency =='usd'">${{payment.amount}}</td>
+                           <td ng-show="payment.currency =='gbp'">£{{payment.amount}}</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-9">
+         <div class="ibox float-e-margins">
+            <div class="ibox-content">
+               <tabset>
+                  <tab heading="Public User Profile" active="tab1Active" class="dsads">
+                     <br/>
+                     <h4 style="margin-left:10px;"><strong>Education</strong></h4>
+                     <div style="margin-left:10px;" ng-repeat="school in person.user.schools">
+                        <p style="font-size:14px;margin-bottom:2px;">{{school.organization_name}}</p>
+                        <p style="font-size:14px;margin-bottom:2px;">{{school.college}}</p>
+                        <h5 style="margin-top:0px;margin-bottom:2px;">{{school.degree}}</h5>
+                        <p style="font-size:11px;color:blue;margin-bottom:2px;margin-top:0px;">{{school.start | year}} - {{school.finish | year}}</p>
+                     </div>
+                     <hr/>
+                     <h4 style="margin-left:10px;"><strong>Employment</strong></h4>
+                     <div style="margin-left:10px;" ng-repeat="job in person.user.jobs">
+                        <p style="font-size:14px;margin-bottom:2px;">{{job.organization_name}}</p>
+                        <h5 style="margin-top:0px;margin-bottom:2px;">{{job.bio}}</h5>
+                        <p style="font-size:11px;color:blue;margin-bottom:2px;margin-top:0px;">{{job.start | year}} - {{job.end | year}}</p>
+                     </div>
+                  </tab>
+                  <tab heading="Historical User Data" active="tab2Active" class="dsads">
+                     <br/>
+                     <div class="row">
+                        <h4 style="margin-left:8px;"><strong>Contact Information</strong></h4>
+                        <div class="col-md-4">
+                           <h5>Addresses: <i style="cursor:pointer;" ng-click="enableAddAddress()" class="fa fa-plus-square-o"></i></h5>
+                           <div style="margin-bottom:10px;" ng-if="addAddressFlag==1">
+                              <p style="margin-bottom:2px;"><input style="width:70%;height:23px;" type="text" placeholder="Address Line 1..." ng-model="newAddress.location.line1"/> <a href="" style="margin-left:5px" ng-click="saveNewAddress()" class="btn btn-primary btn-xs">Add</a></p>
+                              <p style="margin-bottom:2px;"><input style="width:70%;height:23px;" type="text" placeholder="City..." ng-model="newAddress.location.city"/> </p>
+                              <p style="margin-bottom:2px;"><input style="width:70%;height:23px;" type="text" placeholder="County..." ng-model="newAddress.location.county"/> </p>
+                              <p style="margin-bottom:2px;"> <select style="width:70%;height:23px;" id="countries" name="countries" ng-model="newAddress.location.country"  ng-options="country.name as country.name for country in countries">
+                                             <option style="display:none" value="">Select Country...</option>
+                                            </select> </p>
+                               <p style="margin-bottom:2px;"><select style="width:70%;padding: 0px;font-size: 13px;height: 23px;" name="addnumberstatus" ng-options="status as status for status in selectstatuses" ng-model="newAddress.type" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select> </p>
+                              <p style="margin-bottom:2px;">From: </p><p style="margin-bottom:2px;"><input style="width:70%;height:23px;" type="date" ng-model="newAddress.dateIn"/></p>
+                              <p style="margin-bottom:2px;">Until:</p><p style="margin-bottom:2px;"> <input style="width:70%;height:23px;" type="date" ng-model="newAddress.dateOut"/> </p>
+                           </div>
+                           <div style="margin-bottom:10px;" ng-repeat="address in person.addresses">
+                              <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"><input type="text" ng-model="address.location.line1"/><a href="" style="margin-left:5px" ng-click="saveAddress(address)" class="btn btn-primary btn-xs">Update</a></p>
+                              <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"><input type="text" ng-model="address.location.city"/><a href="" style="margin-left:5px" ng-click="deleteAddress(address)" class="btn btn-default btn-xs">Delete</a> </p>
+                              <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"><input type="text" ng-model="address.location.county"/> </p>
+                              <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"> <select style="width:70%;height:23px;" id="countries" name="countries" ng-model="address.location.country"  ng-options="country.name as country.name for country in countries">
+                              <option style="display:none" value="">Select Country...</option>
+                               </select> </p>
+                               <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"><select style="width:70%;padding: 0px;font-size: 13px;height: 23px;" name="addnumberstatus" ng-options="status as status for status in selectstatuses" ng-model="address.type" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select> </p>
+                             <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;">From: </p><p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;"><input style="width:70%;height:23px;" type="date" ng-model="address.dateIn"/></p>
+                              <p ng-show="editAddressFlag == address.id" style="margin-bottom:2px;">Until:</p><p ng-show="editAddressFlag == address.id"style="margin-bottom:2px;"> <input style="width:70%;height:23px;" type="date" ng-model="address.dateOut"/> </p>
+                              <p  ng-show="editAddressFlag != address.id" style="font-size:14px;margin-bottom:2px;"><strong>{{address.type}}</strong></p>
+                              <p ng-show="editAddressFlag != address.id" style="font-size:14px;margin-bottom:2px;">{{address.location.line1}} <i  style="cursor:pointer;" ng-click="enableEditAddress(address.id)" class="fa fa-pencil-square-o"></i></p>
+                              <p ng-show="editAddressFlag != address.id" style="font-size:14px;margin-bottom:2px;">{{address.location.city}}</p>
+                              <p ng-show="editAddressFlag != address.id" style="font-size:14px;margin-bottom:2px;">{{address.location.county}}</p>
+                              <p ng-show="editAddressFlag != address.id" style="font-size:14px;margin-bottom:2px;">{{address.location.country}}</p>
+                              <p ng-show="editAddressFlag != address.id" style="font-size:11px;color:blue;margin-bottom:2px;margin-top:0px;">{{address.dateIn | year}} - {{address.dateOut | year}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <h5>Phone Numbers: <i style="cursor:pointer;" ng-click="enableAddPhone()" class="fa fa-plus-square-o"></i></h5>
+                           <div ng-if="addPhoneFlag==1">
+                              <p style="margin-bottom:2px;"><select style="padding: 0px;font-size: 13px;height: 23px;" name="addnumberstatus" ng-options="status as status for status in selectstatuses" ng-model="newPhone.label" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select> </p><p><input style="width:100%;" placeholder="Phone Number..." type="text" ng-model="newPhone.value"/></p><p> <a  href="" style="float:right;" ng-click="saveNewPhone()" class="btn btn-primary btn-xs">Add</a></p>
+                              <br/><br/>
+                           </div>
+                           <div ng-repeat="number in person.numbers">
+                              <p ng-show="editPhoneFlag == number.id" style="margin-bottom:2px;"><select style="padding: 0px;font-size: 13px;height: 23px;" name="editnumberstatus" ng-options="status as status for status in selectstatuses" ng-model="number.label" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select>  </p><p ng-show="editPhoneFlag == number.id"> <input style="width:100%"  type="text" ng-model="number.value"/></p><p ng-show="editPhoneFlag == number.id"> <a  href="" style="float:right;" ng-click="savePhone(number)" class="btn btn-primary btn-xs">Update</a><a  href="" style="float:left;" ng-click="deletePhone(number)" class="btn btn-default btn-xs">Delete</a><br/><br/></p>
+                              <p  ng-show="editPhoneFlag != number.id" style="font-size:14px;margin-bottom:2px;">{{number.label}} : {{number.value}} <i style="cursor:pointer;" ng-click="enableEditPhone(number.id)" class="fa fa-pencil-square-o"></i></p>
+                           </div>
+                        </div>
+                        <div class="col-md-5">
+                           <h5>Emails: <i style="cursor:pointer;" ng-click="enableAddEmail()" class="fa fa-plus-square-o"></i></h5>
+                           <div ng-if="addEmailFlag == 1">
+                              <p style="margin-bottom:2px;"><select style="padding: 0px;font-size: 13px;height: 23px;" name="addressStatus" ng-options="status as status for status in selectstatuses" ng-model="newEmail.label" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select> </p><p><input type="text" placeholder="Email Address..." style="width:100%;" ng-model="newEmail.value"/></p><p> <a href="" style="float:right" ng-click="saveNewEmail()" class="btn btn-primary btn-xs">Add</a></p>
+                              <br/><br/>
+                           </div>
+                           <div ng-repeat="email in person.emails">
+                              <p  ng-show="editEmailFlag != email.id" style="font-size:14px;margin-bottom:2px;">{{email.label}} : {{email.value}} <i style="cursor:pointer;" ng-click="enableEditEmail(email.id)" class="fa fa-pencil-square-o"></i></p>
+                              <p  ng-show="editEmailFlag == email.id"  style="margin-bottom:2px;"><select style="padding: 0px;font-size: 13px;height: 23px;" name="addressStatus" ng-options="status as status for status in selectstatuses" ng-model="email.label" class="form-control">
+                              <option style="display:none" value="">Select Type...</option>
+                              </select> </p><p  ng-show="editEmailFlag == email.id" > <input type="text" style="width:100%;" ng-model="email.value"/></p><p  ng-show="editEmailFlag == email.id" > <a href="" style="float:left" ng-click="deleteEmail(email)" class="btn btn-default btn-xs">Delete</a> <a href="" style="float:right" ng-click="saveEmail(email)" class="btn btn-primary btn-xs">Update</a>  <br/><br/></p>
+                            
+                           </div>
+                        </div>
+                     </div>
+                     <hr/>
+                     <div class="row">
+                        <h4 style="margin-left:10px;"><strong>Education</strong> <i style="cursor:pointer;" ng-click="enableAddSchool()" class="fa fa-plus-square-o"></i></h4>
+                        <div ng-if="addSchoolFlag == 1" style="margin-left:10px;">
+                           <p style="margin-bottom:2px;"><input placeholder="Organization Name..." type="text" ng-model="newSchool.organization_name"/> <a href="" style="margin-left:10px" ng-click="saveNewEducation()" class="btn btn-primary btn-xs">Add</a></p>
+                           <p style="margin-bottom:5px;"><input placeholder="College Name..." type="text" ng-model="newSchool.college"/></p>
+                           <p style="margin-bottom:5px;"><input placeholder="Degree Title..." type="text" ng-model="newSchool.degree"/></p>
+                           <p style="margin-bottom:2px"><input style="height:23px;" type="date" ng-model="newSchool.start"/> - <input style="height:23px;" type="date" ng-model="newSchool.finish"/></p>
+                           <br/>
+                        </div>
+                        <div  style="margin-left:10px;" ng-repeat="school in person.schools">
+                           <p ng-show="editEducationFlag != school.id" style="font-size:14px;margin-bottom:2px;">{{school.organization_name}} <i ng-show="editEducationFlag != school.id" style="cursor:pointer;" ng-click="enableEditEducation(school.id)" class="fa fa-pencil-square-o"></i></p>
+                           <p ng-show="editEducationFlag != school.id" style="font-size:14px;margin-bottom:2px;">{{school.college}} </p>
+                           <h5 ng-show="editEducationFlag != school.id" style="margin-top:0px;margin-bottom:2px;">{{school.degree}}</h5>
+                           <p ng-show="editEducationFlag != school.id" style="font-size:11px;color:blue;margin-bottom:2px;margin-top:0px;">{{school.start | year}} - {{school.finish| year}}</p>
+                           <p ng-show="editEducationFlag == school.id" style="margin-bottom:2px;"><input type="text" ng-model="school.organization_name"/><a href="" style="margin-left:10px" ng-click="saveEducation(school)" class="btn btn-primary btn-xs">Update</a></p>
+                           <p ng-show="editEducationFlag == school.id" style="margin-bottom:5px;"><input type="text" ng-model="school.college"/><a href="" style="margin-left:10px" ng-click="deleteEducation(school)" class="btn btn-default btn-xs">Delete</a></p>
+                           <p ng-show="editEducationFlag == school.id" style="margin-bottom:5px;"><input type="text" ng-model="school.degree"/></p>
+                           <p ng-show="editEducationFlag == school.id" style="margin-bottom:2px"><input style="height:23px;" type="date" ng-model="school.start"/> - <input style="height:23px;" type="date" ng-model="school.finish"/></p>
+                           <br/>
+                        </div>
+                     </div>
+                     <hr/>
+                     <div class="row">
+                        <h4 style="margin-left:10px;"><strong>Employment</strong> <i style="cursor:pointer;" ng-click="enableAddJob()" class="fa fa-plus-square-o"></i></h4>
+                        <div style="margin-left:10px;" ng-if="addJobFlag==1">
+                           <p style="margin-bottom:2px;"><input placeholder="Organization Name..."  type="text" ng-model="newJob.organization_name"/> <a href="" style="margin-left:10px" ng-click="saveNewJob()" class="btn btn-primary btn-xs">Add</a></p>
+                           <p style="margin-bottom:5px;"><input placeholder="Job Title..." type="text" ng-model="newJob.bio"/></p>
+                           <p style="margin-bottom:2px"><input style="height:23px;" type="date" ng-model="newJob.start"/> - <input style="height:23px;" type="date" ng-model="newJob.end"/></p>
+                           <br/>
+                        </div>
+                        <div style="margin-left:10px;" ng-repeat="job in person.jobs">
+                           <p ng-show="editEmploymentFlag != job.id" style="font-size:14px;margin-bottom:2px;">{{job.organization_name}} <i style="cursor:pointer;" ng-click="enableEditEmployment(job.id)" class="fa fa-pencil-square-o"></i></p>
+                           <h5 ng-show="editEmploymentFlag != job.id" style="margin-top:0px;margin-bottom:2px;">{{job.bio}}</h5>
+                           <p ng-show="editEmploymentFlag != job.id" style="font-size:11px;color:blue;margin-bottom:2px;margin-top:0px;">{{job.start | year}} - {{job.end | year}}</p>
+                           <p ng-show="editEmploymentFlag == job.id" style="margin-bottom:2px;"><input type="text" ng-model="job.organization_name"/><a href="" style="margin-left:10px" ng-click="saveEmployment(job)" class="btn btn-primary btn-xs">Update</a></p>
+                           <p ng-show="editEmploymentFlag == job.id" style="margin-bottom:5px;"><input type="text" ng-model="job.bio"/><a href="" style="margin-left:10px" ng-click="deleteEmployment(job)" class="btn btn-default btn-xs">Delete</a></p>
+                           <p ng-show="editEmploymentFlag == job.id" style="margin-bottom:2px"><input type="date" style="height:23px;" ng-model="job.start"/> - <input style="height:23px;" type="date" ng-model="job.end"/></p>
+                           <br/>
+                        </div>
+                     </div>
+                  </tab>
+                  <tab heading="User Activity" active="tab3Active"  class="dsads">
+                     <div>
+                        <div class="feed-activity-list">
+                           <br/>
+                           <div ng-show="newsfeed_loading" >
+                              <alert type="info" >Loading Please wait....</alert>
+                           </div>
+                           <div ng-hide="newsfeed_loading" ng-repeat="post in person.posts" class="feed-element">
+                              <a href="" class="pull-left">
+                              <img alt="image" class="img-circle" ng-src="{{person.user.picture  | user_image}}">
+                              </a>
+                              <div class="media-body ">
+                                 <small class="pull-right">{{post.created_at}}</small>
+                                 <strong>{{person.user.display_name}}</strong> posted a message under 
+                                 <a ng-if="post.parent_type == 'Usergroup'" href="#/groups/{{post.parent_id}}"><strong>{{post.posted_on}}</strong></a>
+                                 <a ng-if="post.parent_type == 'OrganizationEvent'" href="#/events/overview"><strong>{{post.posted_on}}</strong></a>
+                                 <a ng-if="post.parent_type == 'DonationCampaign'" href="#/donations/detail/{{post.parent_id}}"><strong>{{post.posted_on}}</strong></a>
+                                 .
+                                 <div class="faq-item">
+                                    <div>
+                                       {{post.content}}
+                                    </div>
+                                    <div collapse="activityDetail1" class="panel-collapse collapse">
+                                       <div ng-repeat="comment in post.comments"class="row" style="margin-bottom:20px;">
+                                          <div class="col-lg-1">
+                                             <a href="#/alumni/profile/{{comment.author.user_id}}" class="pull-left">
+                                             <img alt="image" class="img-circle" ng-src="{{comment.author.user.picture | user_image }}">
+                                             </a>
+                                          </div>
+                                          <div class="col-lg-9">
+                                             <small class="pull-right">
+                                                <dd ng-show="comment.created_at.length>1">{{comment.created_at | dateToISO | date:'HH:mm MMM d yyyy'}}</dd>
+                                                <dd ng-show="comment.created_at.length<1">Unavailable</dd>
+                                             </small>
+                                             <strong>{{comment.author.display_name}}</strong> replied: <br>
+                                             <p>
+                                                {{comment.content}}
+                                             </p>
+                                          </div>
+                                          <div class="col-lg-2"></div>
+                                       </div>
+                                       <div id ="reply_area" class="row" style="margin-bottom:20px;">
+                                          <div class="col-lg-8 col-offset-lg-2">
+                                             <textarea class="form-control" max-length="250" ng-model='comment.content' placeholder="Write a reply...." ></textarea>
+                                          </div>
+                                          <div class="col-lg-2">
+                                             <a class="btn btn-primary" style="margin-top:10%" ng-click="postReply(post.id, $index)"><i class="fa fa-pencil"></i> Post</a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div  class="pull-right">
+                                       <a ng-hide="post.liked" class="btn btn-xs btn-white" ng-click="likePost(post.id, $index)"><i class="fa fa-thumbs-up"></i> Like </a>
+                                       <a ng-show="post.liked" class="btn btn-xs btn-warning" ng-click="unlikePost(post.id, $index)"><i class="fa fa-thumbs-up"></i> Unlike </a>
+                                       <a class="btn btn-xs btn-primary" href="" ng-click="activityDetail1 = !activityDetail1 ; " ng-init="activityDetail1 = true"
+                                          scroll-on-click  onclick="return false;"><i class="fa fa-pencil"></i> Reply</a>
+                                    </div>
+                                    <div class="pull-left">
+                                       <strong>Likes ({{post.likes}}) </strong> | <strong> <a href="" ng-click="activityDetail1 = !activityDetail1 ; " ng-init="activityDetail1 = true"
+                                          scroll-on-click  onclick="return false;"> Replies ({{post.comments.length}}) </a></strong>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <button ng-if="posts_pagination.current_page != posts_pagination.last_page" ng-click="showMore()" class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+                     <alert  ng-if="posts_pagination.current_page == posts_pagination.last_page"  type="warning">No more Posts...</alert>
+                  </tab>
+                  <tab heading="Admin Notes" >
+                     <div ng-show="notes_loading" >
+                        <alert type="info" >Loading Please wait....</alert>
+                     </div>
+                     <alert data-animation="am-fade-and-slide-top" ng-repeat="alert in post_alerts" type="{{alert.type}}" close="closeAlert($index, 'notes_alerts')">{{alert.msg}}</alert>
+                     <div ng-hide="notes_loading"  class="ibox-title">
+                        <a ng-hide="ShowNewNote" style="margin-right:5px;" ng-click="showNewNote()" class="btn btn-xs btn-primary pull-right"><i class="fa fa-pencil"></i> Add Note</a>
+                     </div>
+                     <div ng-hide="notes_loading"  class="ibox-content">
+                        <div class="row postit">
+                           <div ng-show="ShowNewNote" class='col-lg-5 postit-li'>
+                              <div class="row postit-title">
+                                 <a class="pull-right" ng-click="hideNewNote()"><i class='fa fa-close'></i></a>
+                                 <h2>
+                                    <textarea maxlength="50" class="form-input" type="text" ng-model="newNote.title" placeholder="Title"></textarea>
+                                 </h2>
+                              </div>
+                              <div class="row postit-content">
+                                 <p>
+                                    <textarea maxlength="250" class="form-input" type="text" style="height:160px;" ng-model="newNote.content" placeholder="Note Text"></textarea>
+                                 </p>
+                              </div>
+                              <span class="pull-right postit-name-date">
+                              <button ng-click="addNote()">Add Note</button>
+                              </span>
+                           </div>
+                           <div class='col-lg-5 postit-li' ng-repeat="note in notes">
+                              <div class="row postit-title">
+                                 <a  class="pull-right" ng-click="deleteNote(note.id)"><i class='fa fa-close'></i></a>
+                                 <h2 inline-edit="note.title" max-length="50" on-save="updateNote(note)" on-cancel="cancelEdit(note)">{{note.title}}</h2>
+                              </div>
+                              <div class="row postit-content">
+                                 <p inline-edit="note.content" max-length="250" on-save="updateNote(note)" on-cancel="cancelEdit(note)">{{note.content}}</p>
+                              </div>
+                              <span class="pull-right postit-name-date">
+                              {{note.author.display_name}}<br>
+                              {{note.created_at | dateToISO | date:'HH:mm MMM d yyyy'}}
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </tab>
+               </tabset>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
