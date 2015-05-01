@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('fonts/OpenSans-Regular.otf');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('fonts/OpenSans-Bold.otf');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'KozGoPro';
+    src: url('fonts/KozGoPro-Regular.otf');
+}
+
+@font-face {
+    font-family: 'KozGoPro';
+    src: url('fonts/KozGoPro-Bold.otf');
+	font-weight: bold;
+}
