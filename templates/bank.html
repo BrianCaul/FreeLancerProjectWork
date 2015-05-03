@@ -1,124 +1,181 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-   <div class="col-lg-8">
-      <h2>Alumni Portal View</h2>
-      <ol class="breadcrumb">
-         <li>
-            <a href="index.html">Home</a>
-         </li>
-         <li class="active">
-            <strong>Overview</strong>
-         </li>
-      </ol>
-   </div>
-   <div class="col-lg-4">
-      <br>
-      <br>
-   </div>
+<div class="row" style="height:315px;width:100%;margin-top:-20px;margin-right:0px;margin-left:0px;padding:0px;background-image: url('img/bankbanner.png');">
+    <div class="col-md-12">
+        <h1 class="bodytitlewhite text-center" style="margin-top:200px;margin-bottom:0px">GET A US BANK ACCOUNT</h1>
+        <h1 class="bodytitlewhite text-center" style="margin-top:4px">WITHOUT LEAVING THE COUNTRY</h1>
+    </div>
 </div>
-<div ng-show="tiles_loading" class="row">
-   <alert type="info" >Loading Please wait....</alert>
-</div>
-<div ng-hide="tiles_loading"  class="wrapper wrapper-content animated fadeInRight">
-   <div class="ibox row ">
-      <div style="margin-bottom:20px;"ng-repeat="tile in tiles" class="col-lg-3">
-         <div  class="item">
-            <div class="item-content">
-               <div ng-if="tile.type == 'DonationCampaign'" class="posts">
-                  <a href="#/donations/detail/{{tile.id}}">
-                     <div class="item_feature_img">
-                        <div ng-class="{ 'active_image_container' : tile.status=='active',  'pending_image_container' : tile.status=='pending' , 'retired_image_container' : tile.status=='retired'}">
-                           <img class="square_image" ng-src="{{tile.image| donation_image}}" alt="">
-                        </div>
-                        <div class="item_feature_img_content">
-                           <div class="item_top_icon">
-                              <button ng-show="tile.highlighted ==1" type="button" class="item_fav_btn"><img src="img/fav_btn.png" alt=""> </button> 
-                              <div ng-show="tile.highlighted ==0" style="margin-bottom:10px;"><br></div>
-                           </div>
-                           <div class="item_bottom_info">
-                              <h1>{{tile.title | characters:25 :true}}</h1>
-                           </div>
-                        </div>
-                     </div>
-                  </a>
-                  <p class="item_text"> {{tile.description | characters:150 :true}}</p>
-                  <div class="info_sec">
-                     <ul>
-                        <li>{{tile.end_date| dateToISO | date:'MMM yy'}} <span> DATE</span> </li>
-                        <li>{{tile.target}} <span>TARGET</span> </li>
-                        <li>{{tile.raised}} <span>RAISED</span> </li>
-                     </ul>
-                  </div>
-                  <div class="item_btn">
-                     <a ng-href="#/donations/detail/{{tile.id}}"style="padding-left:25px;padding-right:25px;margin-right:10px;" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> View </a>
-                     <a ng-href="#/donations/edit/{{tile.id}}" style="padding-left:25px;padding-right:25px;"class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                  </div>
-                  <br>
-               </div>
-               <div ng-if="tile.type == 'Usergroup'" class="posts">
-                  <a href="#/groups/{{tile.id}}">
-                     <div class="item_feature_img">
-                        <div ng-class="{ 'active_image_container' : tile.privacy=='open',  'pending_image_container' : tile.privacy=='invite' , 'retired_image_container' : tile.privacy=='private'}">
-                           <img class="square_image" ng-src="{{tile.image | group_image}}" alt="">
-                        </div>
-                        <div class="item_feature_img_content">
-                           <div class="item_top_icon">
-                              <button ng-show="tile.highlighted ==1" type="button" class="item_fav_btn"><img src="img/fav_btn.png" alt=""> </button> 
-                              <div ng-show="tile.highlighted ==0 || !tile.highlighted" style="margin-bottom:10px;"><br></div>
-                           </div>
-                           <div class="item_bottom_info">
-                              <h1>{{tile.name  | characters:25 :true}}</h1>
-                           </div>
-                        </div>
-                     </div>
-                  </a>
-                  <p class="item_text"> {{tile.description | characters:150 :true}} </p>
-                  <div class="info_sec">
-                     <ul>
-                        <li style="width:50% !important">{{tile.created_at| dateToISO | date:'MMM yy'}} <span> DATE</span> </li>
-                        <li style="width:50% !important">{{tile.groupmember_count}} <span>MEMBERS</span> </li>
-                     </ul>
-                  </div>
-                  <div class="item_btn">
-                     <a ng-href="#/groups/{{tile.id}}"style="padding-left:25px;padding-right:25px;margin-right:10px;" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> View </a>
-                     <a ng-href="#/groups/edit/{{tile.id}}" style="padding-left:25px;padding-right:25px;"class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                  </div>
-                  <br>
-               </div>
-               <div ng-if="tile.type == 'OrganizationEvent'" class="posts">
-                  <a href="#/events/detail/{{tile.id}}">
-                     <div class="item_feature_img">
-                        <div ng-class="{ 'active_image_container' : tile.status=='active',  'pending_image_container' : tile.status=='pending' , 'retired_image_container' : tile.status=='retired'}">
-                           <img class="square_image" ng-src="{{tile.image | event_image}}" alt="">
-                        </div>
-                        <div class="item_feature_img_content">
-                           <div class="item_top_icon">
-                              <button ng-show="tile.highlighted ==1" type="button" class="item_fav_btn"><img src="img/fav_btn.png" alt=""> </button> 
-                              <div ng-show="tile.highlighted ==0" style="margin-bottom:10px;"><br></div>
-                           </div>
-                           <div class="item_bottom_info">
-                              <h1>{{tile.title | characters:25 :true}}</h1>
-                           </div>
-                        </div>
-                     </div>
-                  </a>
-                  <p class="item_text"> {{tile.description | characters:110 :true}}<br>
-                     <i class="fa fa-map-marker"></i>{{tile.location | characters:30 :true}}
-                  </p>
-                  <div class="info_sec">
-                     <ul>
-                        <li style="width:50%">{{tile.start_date| dateToISO | date:'MMM yy'}} <span> DATE</span> </li>
-                        <li style="width:50%">{{tile.attendees.length}} <span>ATTENDEES</span> </li>
-                     </ul>
-                  </div>
-                  <div class="item_btn">
-                     <a ng-href="#/events/detail/{{tile.id}}"style="padding-left:25px;padding-right:25px;margin-right:10px;" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> View </a>
-                     <a ng-href="#/events/edit/{{tile.id}}" style="padding-left:25px;padding-right:25px;"class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                  </div>
-                  <br>
-               </div>
+<!-- CONTENT
+=================================-->
+<div class="container" style="margin-top:60px;margin-bottom:60px">
+    <div class="row">
+
+     
+      
+
+        <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
+            <p class="bodyfont" style="margin-bottom:25px;">Your US business operations could hardly be considered to be complete, without having a US business bank account.Since September 11, many US laws have been tightened up including those regarding non-US residents opening US bank accounts – without the right information, it has become almost impossible to simply open one yourself, even if you were attend a US bank in person.
+            </p>
+
+            <p class="bodytitle" style="margin-bottom:25px;font-size:19px;">And here’s what you’d probably be asked for:</p>
+            
+
+            <i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;"> US Social Security Number 
+    
+</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">US Street Address</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">
+      Notarized Documentation</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">
+      Your passport
+
+            </p>
+            <i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">
+      Another form of ID such as your driver’s license
+
+            </p>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <hr style="height:1px;background:#BCBCBC;"/>
+            <h1 style="text-align:center;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:28px;">LET US GET YOUR US BANK ACCOUNT<h1>
+            <h1 style="margin-top:-15px;text-align:center;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#333333;font-size:28px;">ORGANIZED FOR YOU</h1>
+            <hr style="width:100px;height:1px;background:#BCBCBC;"/>
+            <br/>
+            <p class="bodyfont" style="margin-bottom:25px;">If you’ve been doing business in the States without a US business account, you’ll already be all too familiar with the long waits to get your funds transferred to your country, and the steep fees involved for every transaction.
+            </p>
+            <p class="bodyfont" style="margin-bottom:25px;">And your US customers can’t deposit checks or pay by credit card. Why make it hard for them to give you money?
+            </p>
+
+
+            <p class="bodytitle" style="margin-bottom:25px;font-size:19px;color:#373737">Here’s 7 reasons why you should allow us to organize your US bank account today:</p>
+
+
+
+            <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/dial.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">Premium high speed service – you’ll have your own US bank account within 8 to 9 weeks – much faster than other online services
+                    </p>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+            <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/moneybag.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">
+No minimum deposit required             
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/visa.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">
+Visa Debit card shipped to you on opening of account
+                    </p>
+                </div>
+            </div>
+             <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/laptop2.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">
+Full access to Internet Banking
+                    </p>
+                </div>
+            </div>
+             <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/cardholder.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">
+No monthly account keeping fees as long as you keep a very mo dest sum in the 
+account
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/institution.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">We use Bank Of America – founded in 1904 – no fly-by-night here-today-gone-tomorrow operators
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:25px;">
+                <div class="col-md-1"><img class="img-responsive" src="img/pages.png" /></div>
+                <div class="col-md-11">
+                    <p class="bodyfont">
+
+You do not even need to visit the USA to make this happen – we will take care of all the paperwork and simply send you your documentation and Visa Debit card!
+                    </p>
+                </div>
+            </div>
+
+            <hr style="height:1px;background:#BCBCBC;"/>
+            <h1 style="text-align:center;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:28px;">GET A US BANK ACCOUNT<h1>
+            <h1 style="margin-top:-15px;text-align:center;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#333333;font-size:28px;">WITHOUT EVER LEAVING THE COUNTRY</h1>
+            <hr style="width:100px;height:1px;background:#BCBCBC;"/>
+            <br/>
+
+            <p class="bodytitle" style="margin-bottom:25px;font-size:19px;">The requirements for setting up your Bank Of America 
+Business Account are very simple:</p>
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">       We need your passport or a certified copy to open the account on your behalf
+    
+</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;"> It only takes 8 to 9 weeks which is the quickest you’ll find online </p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">
+       A mere $100 deposit is all that’s required, no need to invest thousands </p><br/><br/><br/><br/><br/><br/><br/><br/>
+<p class="bodyfont" style="margin-bottom:25px;">It’s that simple! And if you were to hire an accountant and try to organize all this yourself, their fees would come to at least $5,000. Not to mention all the paperwork you’d have to wade through, signature after signature, time and money wasted when we can do it all for you.
+            </p>
+            <p class="bodyfont" style="margin-bottom:25px;">But this is important:Other operators can open severely limited accounts, high initial deposit and transfer requirements, making doing business difficult and frustrating. However, and this is important: You will receive a fully operational Bank Of America Bank Account just as if you were physically operating in the US.
+            </p>
+            <hr style="height:1px;background:#BCBCBC;"/>
+
+             <p class="bodytitle" style="font-size:26px;margin-bottom:0px;line-height:100%">The longer you wait, the more business passes you buy in the world’s largest consumer economy.</p>
+             <p class="bodyfont" style="margin-bottom:25px;margin-top:4px;font-weight:bold;">Why fiddle around for hours with cheap do-it-yourself kits, especially when one mistake on a form could kill the entire deal.</p>
+            
+            <div style="margin-bottom:25px;"class="col-md-12 text-center"><img class="img-responsive" src="img/bankblurb.png" /></div>
+            <div style="margin-bottom:25px;"class="col-md-12 text-center"><img class="img-responsive" src="img/bankbutton.png" /></div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="well" style="margin-top:10px;border-radius: 4px; background-color:#DDDDDD;border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;padding-bottom:0px;">
+                <div class="row">
+                    <div style="margin-top:-19px;margin-left:4%;width:92.5%;background-image:url('img/boxheaderbg.png');height:62px;background-repeat: repeat-x;" class="col-md-12">
+                        <p style="font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#3b3a3a;font-size:26px;text-align:center;margin-top:12px;">START A BUSINESS</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <br/>
+                        <select style="margin-left:12%;padding:5px;height:40px;width:75%;">
+                            <option selected value="select">Select entity</option>
+                        </select>
+                        <br/>
+                        <br/>
+                        <img src="img/button2.png" style="margin-left:12%;" />
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-left:4%;width:92.5%;background-color:#545454;height:62px;" class="col-md-12">
+                        <p style="font-weight:bold;font-family: 'OpenSans', sans-serif;color:#ffffff;font-size:24px;text-align:center;margin-top:12px;">100% GUARANTEE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="well" style="background-color:#F2F2F2;margin-top:30px;border-radius: 4px; border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;">
+                <h1 style="text-align:center;margin-top:5px;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#333333;font-size:28px;"><font style="margin-top:30px;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:28px;">OUR</font> TESTIMONIALS<h1>
+                 <hr style="width:200px;height:1px;background:#BCBCBC;"/>
+                 <img style="margin-left:25%;" src="img/review.png"/>
+                 <br/>
+                 <p style="line-height: 160%;margin-left:10%;margin-right:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;"><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui mod tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit tincidunt..<i class="fa fa-quote-right"></i></p>
+                 <p style="font-weight:bold;margin-left:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;">Roger Boothman</p><p style="text-align:center;margin-top:30px;">
+                 <img style="margin-right:5px;" src="img/arrowleft.png"/> <img src="img/arrowright.png"/></p>
+             </br>
+             <p style="text-align:center"><img src="img/satisfaction.png"/> </p>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+<!-- /CONTENT ============-->

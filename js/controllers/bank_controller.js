@@ -8,7 +8,7 @@ define(['js/app'], function (app) {
         
     };
 
-    activity_controller.$inject = injectParams;
+    bank_controller.$inject = injectParams;
 
     app.register.controller('bank_controller', bank_controller);
 

@@ -1,21 +1,89 @@
 @font-face {
     font-family: 'OpenSans';
-    src: url('fonts/OpenSans-Regular.otf');
+    src: url('fonts/OpenSans/OpenSans-Regular.otf');
 }
 
 @font-face {
     font-family: 'OpenSans';
-    src: url('fonts/OpenSans-Bold.otf');
+    src: url('fonts/OpenSans/OpenSans-Bold.otf');
 	font-weight: bold;
 }
 
 @font-face {
     font-family: 'KozGoPro';
-    src: url('fonts/KozGoPro-Regular.otf');
+    src: url('fonts/KozGoPro/KozGoPro-Regular.otf');
 }
 
 @font-face {
     font-family: 'KozGoPro';
-    src: url('fonts/KozGoPro-Bold.otf');
+    src: url('fonts/KozGoPro/KozGoPro-Bold.otf');
 	font-weight: bold;
 }
+
+.bodyfont{
+font-family: 'OpenSans', sans-serif;
+color:#373737;
+font-size:18px;
+line-height:130%;
+}
+
+.bodyfontbig{
+font-family: 'OpenSans', sans-serif;
+color:#373737;
+font-size:24px;
+line-height:130%;
+font-weight: bold;
+margin-top:25px;
+margin-bottom:25px;
+}
+
+
+.bodytitle{
+    font-weight:bold;
+    font-family: 'KozGoPro', sans-serif;
+    color:#f65314;
+    font-size:32px;
+}
+.bodytitlewhite{
+    font-weight:bold;
+    font-family: 'KozGoPro', sans-serif;
+    color:#ffffff;
+    font-size:32px;
+}
+
+input.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+   outline: 0;
+    -webkit-appearance: none;
+}
+
+input.rounded:focus {
+    border-color: #339933;
+}
+
+textarea.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+   outline: 0;
+    -webkit-appearance: none;
+}
+
+textarea.rounded:focus {
+    border-color: #339933;
+}
+

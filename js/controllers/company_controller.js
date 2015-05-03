@@ -7,7 +7,7 @@ define(['js/app'], function(app) {
     var company_controller = function($scope, $rootScope) {
     };
 
-    account_controller.$inject = injectParams;
+    company_controller.$inject = injectParams;
 
     app.register.controller('company_controller', company_controller);
 
