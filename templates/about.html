@@ -1,164 +1,67 @@
-<div class="wrapper wrapper-content">
-   <div ng-show="dash_loading" class="row">
-      <alert type="info" >Loading Please wait....</alert>
-   </div>
-   <div ng-hide="dash_loading" class="row">
-      <div class="col-lg-3">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <span class="label label-success pull-right">Total</span>
-               <h5>Alumni</h5>
-            </div>
-            <div class="ibox-content">
-               <h1 class="no-margins">{{organization.alumni_number | number:0}}</h1>
-               <div class="stat-percent font-bold text-success">{{organization.alumni_increase | number:2}}% 
-                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
-                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
-               </div>
-               <small>Monthly Change</small>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-3">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <span class="label label-info pull-right">Total</span>
-               <h5>Active Alumni</h5>
-            </div>
-            <div class="ibox-content">
-               <h1 class="no-margins">{{organization.active_number | number:0}}</h1>
-               <div class="stat-percent font-bold text-info">{{organization.active_increase | number:2}}% 
-                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
-                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
-               </div>
-               <small>Monthly Change</small>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-3">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <span class="label label-primary pull-right">Total</span>
-               <h5>Pending Alumni</h5>
-            </div>
-            <div class="ibox-content">
-               <h1 class="no-margins">{{organization.pending_number | number:0}}</h1>
-               <div class="stat-percent font-bold text-navy">{{organization.pending_increase | number:2}}% 
-                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
-                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
-               </div>
-               <small>Monthly Change</small>
-            </div>
-         </div>
-      </div>
-      <div class="col-lg-3">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <span class="label label-danger pull-right">Total</span>
-               <h5>Inactive Alumni</h5>
-            </div>
-            <div class="ibox-content">
-               <h1 class="no-margins">{{organization.inactive_number | number:0}}</h1>
-               <div class="stat-percent font-bold text-danger">{{organization.inactive_increase | number:2}}% 
-                  <i ng-if="organization.alumni_increase >= 0" class="fa fa-level-up"></i>
-                  <i ng-if="organization.alumni_increase < 0" class="fa fa-level-down"></i>
-               </div>
-               <small>Monthly Change</small>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div ng-hide="dash_loading" class="row">
-      <div class="col-lg-4">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <h5>Fundraising Campaigns</h5>
-               <a href="#/donations/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
-            </div>
-            <div class="ibox-content">
-               <table ng-if="donationcampaigns.length > 0" class="table table-hover">
-                  <thead>
-                     <tr>
-                        <th>Campaign</th>
-                        <th>End Date</th>
-                        <th>Donations</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr ng-repeat="campaign in donationcampaigns | limitTo: 3">
-                        <td><a ng-href="#/donations/detail/{{campaign.id}}" title="{{campaign.title}}">{{campaign.title | characters:13 :true}}</a></td>
-                        <td><time datetime="campaign.end_date"></time></td>
-                        <td ng-show="campaign.currency == 'gbp'">£{{campaign.raised}}</td>
-                        <td ng-show="campaign.currency == 'usd'">${{campaign.raised}}</td>
-                        <td ng-show="campaign.currency == 'eur'">€{{campaign.raised}}</td>
-                     </tr>
-                  </tbody>
-               </table>
-               <p ng-if="donationcampaigns.length == 0">
-                  You have no Fundraising Campaigns. <br><br>
+
+<!-- CONTENT
+=================================-->
+<div class="container" style="margin-top:60px;margin-bottom:60px">
+    <div class="row">
+
+        <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
+            <h1 style="font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:32px;">GLOBESCORP.COM: YOUR TICKET TO THE LARGEST MARKETPLACE ON EARTH, IN 24 HOURS<h1>
+            <p style="font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;">Let’s face it – if you haven’t already found a great reason to break in to the US market with your product or service – chances are it won’t take much looking to find one. Americans are ambitious, curious, genuine lovers of new products and services, and above all, Americans are consumers. And consumers love to buy. 
+            </p>
+            <div class="well" style="margin-top:35px;margin-bottom:45px;">
+               <p style="line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;">However – there are quite a few rules and regulations in place for organizations to start selling in the US – and in this age of uncertainty, these have only increased. 
+               </p>
+               <br/>
+               <p style="line-height: 170%;font-weight:bold;font-family: 'OpenSans', sans-serif;color:#f65314;font-size:18px;">Do YOU have time to fly to the US to register a company or open a bank account? 
+Do YOU have time to sign a stack of forms and organize everything?
                </p>
             </div>
-         </div>
-      </div>
-      <div class="col-lg-4">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <h5>Groups</h5>
-               <a href="#/groups/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
+            <i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">This is why GlobesCorp is your most cost effective, and efficient option to form your US company and open your US bank account, without you having to set foot in The States at all.</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">And what’s more, you can be incorporated in the tax-friendly state of Delaware in just 24 hours.</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">If you were to hire an international accountant to help you with this, their fees would be upwards of $5,000. And you’d still have that tall pile of forms to sign.</p>
+
+<i style="margin-top:5px;color:green;margin-right:20px;font-size:18px;float:left;" class="fa fa-check"></i><p style="width:90%;float:left;line-height: 150%;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;margin-bottom:25px;">And the cheap online offers out there are not an option – there’s probably even more work involved – and you’ll probably never see your money again anyway.
+
+            </p>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <p style="text-align:center;line-height: 170%;font-weight:bold;font-family: 'OpenSans', sans-serif;color:#373737;font-size:18px;">To get your start in the US market in 24 hours, <font style="color:#f65314;">click here</font></p>
+        </div>
+        <div class="col-md-4">
+            <div class="well" style="margin-top:10px;border-radius: 4px; background-color:#DDDDDD;border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;padding-bottom:0px;">
+            <div class="row">
+                <div style="margin-top:-19px;margin-left:4%;width:92.5%;background-image:url('img/boxheaderbg.png');height:62px;background-repeat: repeat-x;" class="col-md-12"><p style="font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#3b3a3a;font-size:26px;text-align:center;margin-top:12px;">START A BUSINESS</p></div>
             </div>
-            <div class="ibox-content">
-               <table ng-if="groups.length > 0" class="table table-hover">
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Active Alumni</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr  ng-repeat="group in groups  | limitTo: 3">
-                        <td><a ng-href="#/groups/{{group.id}}" title="{{group.name}}">{{group.name | characters:13 :true}}</a></td>
-                        <td>{{group.groupmember_count}}</td>
-                     </tr>
-                  </tbody>
-               </table>
-               <p ng-if="groups.length == 0">
-                  You have no Groups. <br><br>
-               </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <br/>
+                    <select style="margin-left:12%;padding:5px;height:40px;width:75%;">
+                      <option selected value="select">Select entity</option>
+                    </select>
+                    <br/>
+                    <br/>
+                    <img src="img/button2.png" style="margin-left:12%;"/>
+                    <br/>
+                    <br/>
+                </div>
             </div>
-         </div>
-      </div>
-      <div class="col-lg-4">
-         <div class="ibox float-e-margins">
-            <div class="ibox-title">
-               <h5>Events</h5>
-               <a href="#/events/new" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-square"></i> New</a>
+            <div class="row">
+                  <div style="margin-left:4%;width:92.5%;background-color:#545454;height:62px;" class="col-md-12"><p style="font-weight:bold;font-family: 'OpenSans', sans-serif;color:#ffffff;font-size:24px;text-align:center;margin-top:12px;">100% GUARANTEE</p></div>
             </div>
-            <div class="ibox-content">
-               <table ng-if="events.length > 0" class="table table-hover">
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Attending</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr ng-repeat="event in events  | limitTo: 3">
-                        <td><a ng-href="#/events/detail/{{event.id}}" title="{{event.title}}">{{event.title | characters:13 :true}}</a></td>
-                        <td><time datetime="event.start_date"></time></td>
-                        <td>{{event.attendees.length}}</td>
-                     </tr>
-                  </tbody>
-               </table>
-               <p ng-if="events.length == 0">
-                  You have no Events. <br><br>
-               </p>
             </div>
-         </div>
-      </div>
-   </div>
+            <div class="well" style="background-color:#F2F2F2;margin-top:30px;border-radius: 4px; border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;">
+                 <h1 style="text-align:center;margin-top:5px;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#333333;font-size:28px;"><font style="margin-top:30px;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:28px;">OUR</font> TESTIMONIALS<h1>
+                 <hr style="width:200px;height:1px;background:#BCBCBC;"/>
+                 <img style="margin-left:25%;" src="img/review.png"/>
+                 <br/>
+                 <p style="line-height: 160%;margin-left:10%;margin-right:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;"><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui mod tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit tincidunt..<i class="fa fa-quote-right"></i></p>
+                 <p style="font-weight:bold;margin-left:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;">Roger Boothman</p><p style="text-align:center;margin-top:30px;">
+                 <img style="margin-right:5px;" src="img/arrowleft.png"/> <img src="img/arrowright.png"/></p>
+             </br>
+             <p style="text-align:center"><img src="img/satisfaction.png"/> </p>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+<!-- /CONTENT ============-->
