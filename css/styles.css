@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'OpenSans';
-    src: url('fonts/OpenSans/OpenSans-Regular.otf');
+    src: url('fonts/OpenSans/OpenSans-Regular.ttf');
 }
 
 @font-face {
     font-family: 'OpenSans';
-    src: url('fonts/OpenSans/OpenSans-Bold.otf');
+    src: url('fonts/OpenSans/OpenSans-Bold.ttf');
 	font-weight: bold;
 }
 
@@ -68,6 +68,26 @@ input.rounded {
 input.rounded:focus {
     border-color: #339933;
 }
+
+
+select.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+   outline: 0;
+    -webkit-appearance: none;
+}
+
+select.rounded:focus {
+    border-color: #339933;
+}
+
 
 textarea.rounded {
     border: 1px solid #ccc;
