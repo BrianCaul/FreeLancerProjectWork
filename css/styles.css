@@ -182,3 +182,19 @@ textarea.rounded:focus {
 
 
 }
+
+table{
+     border: 1px solid #DCDCDC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+   outline: 0;
+    -webkit-appearance: none;
+
+
+}
+
+td{
+     border: 1px solid #DCDCDC;
+     padding:20px;
+}
