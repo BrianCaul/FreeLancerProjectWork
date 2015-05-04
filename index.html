@@ -24,9 +24,10 @@
          <!-- Page wraper -->
          <div id="page-wrapper" class="gray-bg">
 			<!--Header -->
-			<div ng-if="showHeader" ng-include="'templates/common/header.html'"></div>
+			<div ng-include="'templates/common/header.html'"></div>
 			<!-- Navigation -->
-			<div ng-include="'templates/common/navigation.html'"></div>
+			<div ng-if="showHeader" ng-include="'templates/common/navigation.html'"></div>
+         <hr ng-if="!showHeader" style="border-color:white;height:1px;width:100%;box-shadow: 1px 5px 5px #888888;">
             <!--Main Content Container -->
 			<div data-ng-view id="ng-view" ></div>
             <!-- Footer -->
@@ -38,7 +39,6 @@
       <!-- End wrapper-->
       <!-- jQuery and Bootstrap -->
       <script src="vendors/jquery/jquery-2.1.1.min.js"></script>
-      <script src="vendors/plugins/jquery-ui/jquery-ui.js"></script>
       <script src="vendors/bootstrap/bootstrap.min.js"></script>
       <!-- Angular scripts-->
       <script src="vendors/angular/angular.min.js"></script>
