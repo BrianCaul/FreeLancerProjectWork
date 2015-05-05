@@ -4,9 +4,15 @@
 }
 
 @font-face {
-    font-family: 'OpenSans';
+    font-family: 'OpenSans-Bold';
     src: url('fonts/OpenSans/OpenSans-Bold.ttf');
 	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url('fonts/OpenSans/OpenSans-Light.ttf');
+	font-weight: lighter;
 }
 
 @font-face {
@@ -15,38 +21,130 @@
 }
 
 @font-face {
-    font-family: 'KozGoPro';
+    font-family: 'KozGoPro-Bold';
     src: url('fonts/KozGoPro/KozGoPro-Bold.otf');
 	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'KozGoPro-Light';
+    src: url('fonts/KozGoPro/KozGoPro-ExtraLight.otf');
+	font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'KozGoPro-Heavy';
+    src: url('fonts/KozGoPro/KozGoPro-Heavy.otf');
+	font-weight: bolder;
+}
+
+.bodyheaderorange{
+text-align:center;
+font-family: 'KozGoPro-Light', sans-serif;
+color:#f65314;
+font-size:32px;
+}
+
+.tick{
+margin-top:5px;
+color:green;
+margin-right:20px;
+font-size:18px;
+float:left;
+}
+.bodyheaderblack{
+text-align:center;
+font-family: 'KozGoPro-Heavy', sans-serif;
+color:#333333;
+font-size:32px;
 }
 
 .bodyfont{
 font-family: 'OpenSans', sans-serif;
 color:#373737;
 font-size:18px;
-line-height:130%;
+line-height:150%;
+}
+
+.guarantee{
+font-family: 'OpenSans-Bold', sans-serif;
+color:#ffffff;
+font-size:24px;
+text-align:center;
+margin-top:12px;
+}
+
+.testimonial{
+background-color:#F2F2F2;
+margin-top:30px;
+border-radius: 4px;
+border:1px solid #BCBCBC;
+padding-left:0px;
+padding-right:0px;
+}
+
+.quote{
+line-height: 160%;
+margin-left:10%;
+margin-right:10%;
+font-family: 'OpenSans', sans-serif;
+color:#525252;
+font-size:16px;
+}
+
+.quoteperson{
+margin-left:10%;
+font-family: 'OpenSans-Bold', sans-serif;
+color:#525252;
+font-size:16px;
+}
+
+.testimonialtitle{
+text-align:center;
+margin-top:5px;
+font-family: 'KozGoPro-Bold', sans-serif;
+color:#333333;
+font-size:28px;
+}
+
+.guaranteecontainer{
+margin-left:4%;
+width:92.5%;
+background-color:#545454;
+height:62px;
+}
+
+.bodyfontbold{
+text-align:center;
+line-height: 150%;
+font-family: 'OpenSans-Bold', sans-serif;
+color:#373737;
+font-size:18px;
 }
 
 .bodyfontbig{
-font-family: 'OpenSans', sans-serif;
+font-family: 'OpenSans-Bold', sans-serif;
 color:#373737;
 font-size:24px;
-line-height:130%;
-font-weight: bold;
+line-height:150%;
 margin-top:25px;
 margin-bottom:25px;
 }
 
+.bodytitle2{
+    font-family: 'OpenSans-Bold', sans-serif;
+    color:#f65314;
+    font-size:36px;
+}
+
 
 .bodytitle{
-    font-weight:bold;
-    font-family: 'KozGoPro', sans-serif;
+    font-family: 'KozGoPro-Bold', sans-serif;
     color:#f65314;
     font-size:32px;
 }
 .bodytitlewhite{
-    font-weight:bold;
-    font-family: 'KozGoPro', sans-serif;
+    font-family: 'KozGoPro-Bold', sans-serif;
     color:#ffffff;
     font-size:32px;
 }
@@ -210,6 +308,47 @@ td{
      padding:20px;
 }
 
+.hrline1{
+height:1px;
+background:#BCBCBC;
+margin-bottom:30px;
+}
+
+.hrline2{
+width:100px;
+height:1px;
+background:#BCBCBC;
+margin-bottom:30px;
+}
+.linkicon{
+color:grey;
+margin-right:20px;
+width:16px;
+}
+.homewell{
+margin-top:30px;
+border-radius: 4px;
+background-color:#DDDDDD;
+border:1px solid #BCBCBC;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:0px;
+}
+
+.extrabodyfont{
+margin-top:25px;
+margin-bottom:30px;
+font-family: 'KozGoPro-Heavy', sans-serif;
+color:#f65314;
+font-size:20px;
+}
+
+.inlinelink{
+margin-left:20px;
+font-family: 'OpenSans', sans-serif;
+color:#373737;
+font-size:16px;
+}
 
 .styled-select select {
    background: transparent;
