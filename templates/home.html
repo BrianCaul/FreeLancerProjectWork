@@ -1,11 +1,11 @@
 
 <!-- CONTENT
 =================================-->
- <div class="row" style="height:556px;margin-top:-20px;padding:0px;background-image: url('img/homebanner.png');">
+ <div class="row" style="height:556px;margin-top:-20px;padding:0px;background-image: url('img/homebanner.jpg');background-repeat: no-repeat;background-position: center;background-size: 100% auto; ">
         <div style="margin-top:120px;"class="col-lg-11 col-lg-offset-1">
             <h1 style="text-shadow: 1px 1px white;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#000000;font-size:31px;" >GET YOUR VERY OWN US COMPANY</h1>
             <h1 style="text-shadow: 1px 1px white;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#000000;font-size:50px;float:left;margin-top:-5px;" >SET UP WITHIN </h1> <h1 style="text-shadow: 1px 1px white;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:white;font-size:50px;float:left;margin-top:-5px;margin-left:7px;text-shadow: 1px 1px black;" > 24 HOURS</h1>
-            <h1 style="text-shadow: 1px 1px white;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#000000;font-size:18px;float:left" >AND GET A US BANK ACCOUNT WITHOUT EVER SETTING FOOT ON US SOIL</h1>
+            <h1 style="text-shadow: 1px 1px white;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#000000;font-size:18px;clear:both" >AND GET A US BANK ACCOUNT WITHOUT EVER SETTING FOOT ON US SOIL</h1>
         </div>
 
         <div style="margin-top:10px;" class="col-lg-11 col-lg-offset-1">
@@ -15,7 +15,7 @@
         </div>
 </div>
 
-<div class="container" style="margin-top:60px">
+<div class="container" ng-controller="home_controller" style="margin-top:60px">
     <div class="row">
         <div class="col-md-4">
             <div class="well" style="border-radius: 4px; border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;">
@@ -40,10 +40,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <br/>
-                    <select style="margin-left:12%;padding:5px;height:40px;width:75%;">
+					<div class="styled-select" style="margin-left:12%;padding:8px;height:50px;width:75%;">
+                    <select>
                       <option selected value="select">Select entity</option>
                     </select>
-                    <br/>
+					</div>
                     <br/>
                     <a href="#/order/pick1"><img src="img/button2.png" style="margin-left:12%;"/></a>
                     <br/>

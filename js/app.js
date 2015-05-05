@@ -45,6 +45,14 @@ var app = angular.module('globescorpapp',
             //Client-side security. Server-side framework MUST add it's 
             //own security as well since client-based security is easily hacked
             $rootScope.$on("$routeChangeStart", function (event, next, current) {
+			
+				var currentPath = $location.path();
+			
+					if(currentPath==='/order/pick1' || currentPath==='/order/pick2' || currentPath==='/order/details'){
+						$rootScope.hideStuff= false;
+					}else{
+						$rootScope.hideStuff= true;
+					}
 
             });
 

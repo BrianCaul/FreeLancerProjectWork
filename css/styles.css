@@ -183,6 +183,17 @@ textarea.rounded:focus {
 
 }
 
+.othercontainer{
+    background-color:#EBEBEB;
+     border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 40px 20px;
+   outline: 0;
+    -webkit-appearance: none;
+}
+
 table{
      border: 1px solid #DCDCDC;
     -moz-border-radius: 5px;
@@ -198,3 +209,38 @@ td{
      border: 1px solid #DCDCDC;
      padding:20px;
 }
+
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 3px;
+   font-size: 19px;
+   font-family: 'OpenSans', sans-serif;
+   color:#3c3c3c;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+   
+.styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url('../img/arrow.png') no-repeat right white;
+   border: 1px solid #ccc;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   -moz-box-shadow: 2px 2px 3px #666;
+   -webkit-box-shadow: 2px 2px 3px #666;
+   box-shadow: 2px 2px 3px #666;
+   font-size: 19px;
+   font-family: 'OpenSans', sans-serif;
+   color:#3c3c3c;
+   padding: 2px 7px;
+   outline: 0;
+   -webkit-appearance: none;
+   }

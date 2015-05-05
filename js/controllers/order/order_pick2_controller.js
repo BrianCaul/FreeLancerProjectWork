@@ -6,8 +6,7 @@ define(['js/app'], function(app) {
 
     var order_pick2_controller = function($scope) {
 	
-	    $scope.showHeader = false;
-		$scope.show2ndFooter = false;
+	  
 	
     };
 

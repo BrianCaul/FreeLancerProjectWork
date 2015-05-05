@@ -1,6 +1,6 @@
 <!-- CONTENT
 =================================-->
-<div class="container" style="margin-top:40px;margin-bottom:60px">
+<div class="container" ng-controller="order_details_controller" style="margin-top:40px;margin-bottom:60px">
     <div class="row">
         <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
             <a href="#/order/pick2"><img style="margin-bottom:10px;" src="img/backbutton.png"/></a>
@@ -69,10 +69,11 @@
                 <div class="col-md-6">
                   <br/>
                     <p class="bodyfont" style="font-weight:bold;">Business Category : <small>(required)</small></p>
-                    <select class="lessrounded" style="width:100%;">
-                      <option selected value="select">Please select a business category</option>
-                    </select>
-                    <br/>
+                    <div class="styled-select" style="width:100%;padding-left:0px;height:40px">
+						<select style="width:100%;margin-top:-3px;margin-left:0px;height:40px">
+						  <option selected value="select">Please select business category</option>
+						</select>
+					</div>
                 </div>
                 <div class="col-md-6">
                     <br/>
@@ -128,9 +129,11 @@
                 <div class="col-md-3">
                      <br/>
                      <p class="bodyfont" style="font-weight:bold;">State :</p>
-                     <select class="lessrounded" style="width:100%;">
-                      <option selected value="select">Select a state</option>
-                     </select>
+                     <div class="styled-select" style="width:100%;padding-left:0px;height:40px">
+						<select style="width:110%;margin-top:-3px;margin-left:0px;height:40px">
+						  <option selected value="select">Select state</option>
+						</select>
+					</div>
                     <br/>
                 </div>
                 <div class="col-md-3">
@@ -202,9 +205,11 @@
                 <div class="col-md-3">
                      <br/>
                      <p class="bodyfont" style="font-weight:bold;">State :</p>
-                     <select class="lessrounded" style="width:100%;">
-                      <option selected value="select">Select a state</option>
-                     </select>
+					 <div class="styled-select" style="width:100%;padding-left:0px;height:40px">
+						<select style="width:110%;margin-top:-3px;margin-left:0px;height:40px">
+						  <option selected value="select">Select state</option>
+						</select>
+					</div>
                     <br/>
                 </div>
                 <div class="col-md-3">

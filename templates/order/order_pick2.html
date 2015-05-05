@@ -1,6 +1,6 @@
 <!-- CONTENT
 =================================-->
-<div class="container" style="margin-top:60px;margin-bottom:60px">
+<div class="container" ng-controller="order_pick2_controller" style="margin-top:60px;margin-bottom:60px">
     <div class="row">
 
         <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
@@ -11,14 +11,15 @@
 
             <p class="bodyfont" style="margin-bottom:25px;line-height:150%">If you’re ready to take advantage of the huge, free-spending US market – you’re in the right place. We do all the paperwork for you – it’s simply a matter of registering your details here, and waiting for your new US company to be formed within 24 hours – no flights, no signing forms, no hassle, no time wasted.</p>
 
-            <div class="well formcontainer">
+            <div class="well othercontainer">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="bodyfont" style="margin-top:8px;float:left;margin-right:15px;">Select an Entity Type</p>
-                    <select style="float:left;padding:5px;height:40px;width:70%;">
-                      <option selected value="select">Limited Liability Company(LLC)</option>
-                    </select>
-                    <br/>
+                    <p class="bodyfont" style="font-weight:bold;margin-top:8px;float:left;margin-right:15px;">Select an Entity Type</p>
+					<div class="styled-select" style="margin-top:-4px;height:50px;float:left;width:70%;">
+						<select style="width:100%;padding-top:10px;height:40px;">
+						  <option selected value="select">Limited Liability Company (LLC)</option>
+						</select>
+					</div>
                     <br/>
                 </div>
             </div>

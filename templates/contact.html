@@ -1,4 +1,4 @@
-<div class="row" style="height:315px;width:100%;margin-top:-20px;margin-right:0px;margin-left:0px;padding:0px;background-image: url('img/contactbanner.png');">
+<div class="row" style=" min-height:315px;width:100%;margin-top:-20px;margin-right:0px;margin-left:0px;padding:0px;background-image: url('img/contactbanner.jpg');background-repeat: no-repeat;background-position: center;background-size: 100% auto;">
 
     <div class="col-md-12">
         <h1 class="bodytitlewhite text-center" style="margin-top:200px;margin-bottom:0px">GOT QUESTIONS?</h1>
@@ -8,7 +8,7 @@
 </div>
 <!-- CONTENT
 =================================-->
-<div class="container" style="margin-top:60px;margin-bottom:60px">
+<div class="container" ng-controller="contact_controller" style="margin-top:60px;margin-bottom:60px">
     <div class="row">
 
         <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
@@ -89,10 +89,11 @@ Contact Us – </strong>If you’re still not quite sure, feel free to use the f
                 <div class="row">
                     <div class="col-md-12">
                         <br/>
-                        <select style="margin-left:12%;padding:5px;height:40px;width:75%;">
-                            <option selected value="select">Select entity</option>
-                        </select>
-                        <br/>
+                        <div class="styled-select" style="margin-left:12%;padding:8px;height:50px;width:75%;">
+						<select>
+						  <option selected value="select">Select entity</option>
+						</select>
+						</div>
                         <br/>
                         <a href="#/order/pick1"><img src="img/button2.png" style="margin-left:12%;" /></a>
                         <br/>

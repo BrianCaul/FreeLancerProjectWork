@@ -6,8 +6,7 @@ define(['js/app'], function(app) {
 
     var order_details_controller = function($scope) {
 	
-	    $scope.showHeader = false;
-		$scope.show2ndFooter = false;
+	   
 		
     };
 
