@@ -2,8 +2,6 @@
 
 define(['js/app'], function(app) {
 
-
-
     function bsHasError() {
         return {
             restrict: "A",

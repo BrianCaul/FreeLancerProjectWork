@@ -38,86 +38,12 @@
 	font-weight: bolder;
 }
 
-@media (min-width:1200px){
- .desktop-only {
-        display:block !important;
-    }
-}
-
-@media (max-width:1190px){
-  .mobile-only {
-        display:block !important;
-    }
- .desktop-only {
-        display:none !important;
-    }
-}
-
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-}
-
-.navbar .navbar-nav  :hover{
-  text-decoration:underline;
-}
-
-.navbar .navbar-collapse {
-  text-align: center;
-   background-color:#5C5C5C;
-   background-image: url('../img/navbarbg.png'); 
-   background-repeat: repeat-x;
-}
-
-/* Customize the navbar links to be fill the entire space of the .navbar */
-.navbar .navbar-inner {
-    padding: 0;
-}
-
-.navbar .nav {
-    margin: 0;
-    display: table;
-    width: 100%;
-	max-width:1400px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.navbar .nav li {
-    display: table-cell;
-    width: 14%;
-    float: none;
-}
-
-.navbar .nav li a {
-    font-weight: bold;
-    text-align: center;
-}
-
-.navbar .nav ul:first-child li {
-    border-left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.navbar .nav li:last-child a {
-    border-right: 0;
-    border-radius: 0 3px 3px 0;
-}
-
 .bodyheaderorange{
 text-align:center;
 font-family: 'KozGoPro-Light', sans-serif;
 color:#f65314;
 font-size:32px;
 }
-
-   .headertitle1{
-   font-family: 'KozGoPro-Bold', sans-serif;
-   color:#333333;
-   font-size:24px;
-   padding-right:5px;
-   }
 
 .tick{
 margin-top:5px;
@@ -436,6 +362,13 @@ font-size:16px;
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
+   }
+   
+   .headertitle1{
+   font-family: 'KozGoPro-Bold', sans-serif;
+   color:#333333;
+   font-size:14px;
+   padding-right:5px;
    }
    
 .styled-select {

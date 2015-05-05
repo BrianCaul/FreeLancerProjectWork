@@ -25,7 +25,7 @@ var app = angular.module('globescorpapp',
             
             var route = routeResolverProvider.route;
 
-
+			//Definition of routes to load.
             $routeProvider.when('/login',  route.resolve('login'))
                         .when('/home',  route.resolve('home'))
                         .when('/company',  route.resolve('company'))
@@ -42,8 +42,7 @@ var app = angular.module('globescorpapp',
 
     app.run(['$rootScope', '$location',
         function ($rootScope, $location) {
-            //Client-side security. Server-side framework MUST add it's 
-            //own security as well since client-based security is easily hacked
+            //On route change method , fires when a new page is loaded in order to determine which headers/footers to hide or show
             $rootScope.$on("$routeChangeStart", function (event, next, current) {
 			
 				var currentPath = $location.path();

@@ -1,7 +1,7 @@
 ﻿require.config({
     baseUrl: ''
 });
-
+//Require JS, dynamically add any js libs here
 require(
     [
         'js/app',
