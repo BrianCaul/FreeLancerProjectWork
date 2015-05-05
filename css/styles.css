@@ -38,6 +38,31 @@
 	font-weight: bolder;
 }
 
+@media all and (min-width: 1350px) {
+.respnavlink{
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 1349px) and (min-width: 1000px) {
+.respnavlink{
+    font-size: 1vw;
+  }
+}
+
+@media all and (max-width: 999px) and (min-width: 800px) {
+.respnavlink{
+    font-size: 1vw;
+  }
+}
+
+@media all and (max-width: 799px) and (min-width: 1px) {
+.respnavlink{
+    font-size: 1vw;
+  }
+}
+
+
 @media (min-width:1200px){
  .desktop-only {
         display:block !important;
