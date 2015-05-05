@@ -6,7 +6,6 @@ var app = angular.module('globescorpapp',
         [
         'ngRoute',
         'routeResolverServices',
-        'ui.bootstrap',
         'ngCookies',
 		"ngTouch",
 		"ngSanitize" 

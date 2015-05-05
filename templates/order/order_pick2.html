@@ -1,73 +1,181 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-   <div class="col-lg-10">
-      <h2>Import Alumni Records</h2>
-      <ol class="breadcrumb">
-         <li>
-            <a href="index.html">Home</a>
-         </li>
-         <li>
-            <a href="#/alumni/overview">Alumni Overview</a>
-         </li>
-         <li class="active">
-            <strong>Import Alumni</strong>
-         </li>
-      </ol>
-   </div>
-   <div class="col-lg-2">
-   </div>
-</div>
-<div class="wrapper wrapper-content animated fadeIn">
-<div class="row">
-   <p style="margin-left:20px;">Please download this sample formatted csv file to use to upload your alumni data : <a href='https://s3-eu-west-1.amazonaws.com/kafileuploads/uploadsample.csv'>Sample CSV File</a></p>
-</div>
-<div class="row">
-<div class="col-lg-12">
-   <div class="ibox float-e-margins">
-      <div class="ibox-title" style="margin:0px;padding:0px;height:0px;">
-      </div>
-      <div class="ibox-content">
-         <div class="row">
+<!-- CONTENT
+=================================-->
+<div class="container" style="margin-top:60px;margin-bottom:60px">
+    <div class="row">
+
+        <div style="padding-left:40px:padding-right:20px;" class="col-md-8">
+            <p class="bodytitle" style="margin-bottom:4px;font-size:28px;font-weight:normal">GET YOUR DONE-FOR-YOU DELAWARE CORPORATION AND BANK OF AMERICA BUSINESS ACCOUNT TODAY
+            </p>
+            <p class="bodytitle" style="margin-top:4px;font-size:28px;margin-bottom:25px;color:#373737">YOU CAN FORM YOUR BUSINESS IN 10 MINUTES OR LESS
+            </p>
+
+            <p class="bodyfont" style="margin-bottom:25px;line-height:150%">If you’re ready to take advantage of the huge, free-spending US market – you’re in the right place. We do all the paperwork for you – it’s simply a matter of registering your details here, and waiting for your new US company to be formed within 24 hours – no flights, no signing forms, no hassle, no time wasted.</p>
+
+            <div class="well formcontainer">
             <div class="row">
-               <div class="col-lg-5">
-                  <div class="row">
-                  </div>
-               </div>
-               <div class="col-lg-2">
-                  <div ng-hide="loader == 'true'" class="row">
-                     <input  type="file" on-read-file="showContent($fileContent)" />
-                  </div>
-               </div>
-               <div class="col-lg-5">
-                  <div class="row">
-                  </div>
-               </div>
+                <div class="col-md-12">
+                    <p class="bodyfont" style="margin-top:8px;float:left;margin-right:15px;">Select an Entity Type</p>
+                    <select style="float:left;padding:5px;height:40px;width:70%;">
+                      <option selected value="select">Limited Liability Company(LLC)</option>
+                    </select>
+                    <br/>
+                    <br/>
+                </div>
             </div>
-         </div>
-         <br/>
-         <div class="row" style="overflow:auto;">
-            <h3 style="margin-left:5px">Your Uploaded Data</h3>
-            <table class="table table-striped">
-               <thead>
-                  <tr>
-                     <th ng-repeat="header in headers">
-                        <select style="margin-left:-5px;" ng-model="header.name" ng-options="field for field in selectableFields">
-                           <option style="display:none" value="">Please Match...</option>
-                        </select>
-                     </th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr ng-repeat="line in lines | limitTo:3">
-                     <td ng-repeat="cell in line">
-                        {{cell.value}}
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-         <a ng-click="uploadAll()" class="btn btn-primary" style="margin-top:10px;float:right;">Upload All</a>
-         <br/>
-         <br/>
-      </div>
-   </div>
+            </div>
+            <img src="img/button.png" class="img-responsive pull-right"/>
+
+        </div>
+        <div class="col-md-4">
+            <div class="well" style="background-color:#F2F2F2;margin-top:10px;border-radius: 4px; border:1px solid #BCBCBC;padding-left:0px;padding-right:0px;">
+                <h1 style="text-align:center;margin-top:5px;font-weight:bold;font-family: 'KozGoPro', sans-serif;color:#333333;font-size:28px;"><font style="margin-top:30px;font-family: 'KozGoPro', sans-serif;color:#f65314;font-size:28px;">OUR</font> TESTIMONIALS<h1>
+                 <hr style="width:200px;height:1px;background:#BCBCBC;"/>
+                 <img style="margin-left:25%;" src="img/review.png"/>
+                 <br/>
+                 <p style="line-height: 160%;margin-left:10%;margin-right:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;"><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eui mod tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit tincidunt..<i class="fa fa-quote-right"></i></p>
+                 <p style="font-weight:bold;margin-left:10%;font-family: 'OpenSans', sans-serif;color:#525252;font-size:16px;">Roger Boothman</p><p style="text-align:center;margin-top:30px;">
+                 <img style="margin-right:5px;" src="img/arrowleft.png"/> <img src="img/arrowright.png"/></p>
+           
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+
+    <div class="row">
+
+        <div class="col-md-12">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:40%;"><img style="float:left;margin-top:2px;margin-right:10px;" src="img/2.png"/><p class="bodyfont" style="float:left;margin-bottom:10px;font-weight:bold;font-size:28px;"> Pick A Package</p>
+                <p class="bodyfont" style="margin-left:50px;color:#303030;font-size:18px;clear:both">Package Options</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#303030;font-size:20px;">US Company</p><p class="bodyfont" style="color:#303030;font-size:20px;">$899</p><p class="bodyfont" style="color:#303030;font-size:20px;"><input type="radio" name="radio1" value="radio1"></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#303030;font-size:20px;">US Bank</p><p class="bodyfont" style="color:#303030;font-size:20px;">$999</p><p class="bodyfont" style="color:#303030;font-size:20px;"><input type="radio" name="radio1" value="radio1"></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;">US Company and Bank</p><p class="bodyfont" style="font-size:20px;color:white;">$1599</p><p class="bodyfont" style="color:#303030;font-size:20px;"><input type="radio" name="radio1" value="radio1"></p></td>
+            </tr>
+            <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Free 15 minute phone consultation with our expert CPA – to advise you on everything you need to know about running a US company</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+             <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> 24-hr service – get your US company up and running fast</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> US company formation for non-US residents – without having to personally visit the USA</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> You’ll be incorporated in Delaware – the most tax-friendly state in the US</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Certificate Of Formation with a Certified Copy</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> EIN – Employer Identification Number – Required for taxation purposes – even if you never pay a cent of tax to the US</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Free Registered Agent for 12 months – As your registered agent, we will complete and file all the paperwork necessary to manage your US Corporation, it’s all done for you</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                       <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:20px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-30px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Free US phone number – bring your business closer to your US customers with a FREE US phone number</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                          <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:20px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-30px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Free US business address – this allows you to receive mail in the US and we’ll even scan and forward your mail to you for four months at no cost</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                         <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Personalized company binder</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                         <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Personalized corporate seal</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                         <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> 20 personalized certificates, minutes and bylaws</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Premium high speed service – you’ll have your own US bank account within 6 to 8 weeks – much faster than other online services</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> No minimum deposit required</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                       <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Visa Debit card shipped to you on opening of account</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:10px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-25px;margin-left:40px;margin-bottom:10px;font-size:16px;"> Full access to Internet Banking</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:20px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-30px;margin-left:40px;margin-bottom:10px;font-size:16px;"> No monthly account keeping fees as long as you keep a very modest sum in the account</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:20px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-30px;margin-left:40px;margin-bottom:10px;font-size:16px;"> We use Bank Of America – founded in 1904 – no fly-by-night here-today-gone-tomorrow operators</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+                        <tr>
+              <td style="width:40%;vertical-align:middle"><img style="margin-top:30px;margin-right:10px;" src="img/plus.png"/><p class="bodyfont" style="margin-top:-40px;margin-left:40px;margin-bottom:10px;font-size:16px;"> You do not even need to visit the USA to make this happen – we will take care of all the paperwork and simply send you your documentation and Visa Debit card!</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><p class="bodyfont" style="color:#85BA31;font-size:20px;"><i class="fa fa-check"/></p></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="color:white;font-size:20px;"><i class="fa fa-check"/></p></td>
+            </tr>
+            <tr>
+              <td style="border:0px;width:40%;vertical-align:bottom"><p class="bodyfont pull-right" style="float:left;margin-bottom:10px;font-weight:bold;font-size:28px;"> Total Cost</p><img class="pull-right" style="margin-top:10px;margin-right:10px;float:left;" src="img/plus.png"/>
+                <p class="bodyfont pull-right" style="float:left;color:#303030;font-size:18px;clear:both">Cost Breakdown</p></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><br/><a href=""><img src="img/continue2.png"/></a></td>
+              <td style="text-align:center;background-color:#F6F6F6;width:20%;"><br/><a href=""><img src="img/continue2.png"/></a></td>
+              <td style="text-align:center;background-color:#85BA31;width:20%;"><p class="bodyfont" style="font-weight:bold;font-size:24px;margin-top:-20px">$418</p><a href=""><img src="img/continue3.png" style="margin-top:-10px"/></a></td>
+            </tr>
+          </table>
+        </div>
+    </div>
 </div>
+<!-- /CONTENT ============-->
