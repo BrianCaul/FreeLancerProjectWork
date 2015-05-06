@@ -96,10 +96,19 @@
     }
 }
 
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+
+@media (min-width:896px){
+	.navbar-nav {
+		display: table;
+		width: 100%;
+	}
+
+	.navbar-nav>li {
+		display: table-cell;
+		width: 14.277%;  /* (100 / numItems)% */
+		text-align: center;
+		white-space: nowrap;
+	}​
 }
 
 .navbar .navbar-nav  :hover{
@@ -108,44 +117,9 @@
 
 .navbar .navbar-collapse {
   text-align: center;
-   background-color:#5C5C5C;
-   background-image: url('../img/navbarbg.png'); 
-   background-repeat: repeat-x;
-}
-
-/* Customize the navbar links to be fill the entire space of the .navbar */
-.navbar .navbar-inner {
-    padding: 0;
-}
-
-.navbar .nav {
-    margin: 0;
-    display: table;
-    width: 100%;
-	max-width:1400px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.navbar .nav li {
-    display: table-cell;
-    width: 14%;
-    float: none;
-}
-
-.navbar .nav li a {
-    font-weight: bold;
-    text-align: center;
-}
-
-.navbar .nav ul:first-child li {
-    border-left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.navbar .nav li:last-child a {
-    border-right: 0;
-    border-radius: 0 3px 3px 0;
+  background-color:#5C5C5C;
+  background: url('../img/navbarbg.png') center repeat-x;
+  background-size: auto 100%;
 }
 
 .bodyheaderorange{
