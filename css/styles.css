@@ -38,16 +38,29 @@
 	font-weight: bolder;
 }
 
+@media screen and (max-width: 640px) {
+	table {
+		overflow-x: auto;
+		display: block;
+	}
+}
+
 @media all and (min-width: 1350px) {
 .respnavlink{
     font-size: 15px;
   }
+ .desktoppullleft{
+ margin-left:-25px;
+ }
 }
 
 @media all and (max-width: 1349px) and (min-width: 1000px) {
 .respnavlink{
     font-size: 1vw;
   }
+   .desktoppullleft{
+		margin-left:-25px;
+	}
 }
 
 @media all and (max-width: 999px) and (min-width: 800px) {
@@ -183,9 +196,10 @@ padding-right:0px;
 }
 
 .quote{
+margin-left:5%;
+margin-right:5%;
 line-height: 160%;
-margin-left:10%;
-margin-right:10%;
+text-align:center;
 font-family: 'OpenSans', sans-serif;
 color:#525252;
 font-size:16px;
@@ -207,8 +221,8 @@ font-size:28px;
 }
 
 .guaranteecontainer{
-margin-left:4%;
-width:92.5%;
+padding-top:4px;
+width:100%;
 background-color:#545454;
 height:62px;
 }
