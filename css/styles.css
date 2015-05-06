@@ -33,6 +33,11 @@
 }
 
 @font-face {
+    font-family: 'KozGoPro-Medium';
+    src: url('fonts/KozGoPro/KozGoPro-Medium.otf');
+}
+
+@font-face {
     font-family: 'KozGoPro-Heavy';
     src: url('fonts/KozGoPro/KozGoPro-Heavy.otf');
 	font-weight: bolder;
@@ -215,7 +220,7 @@ font-size:16px;
 .testimonialtitle{
 text-align:center;
 margin-top:5px;
-font-family: 'KozGoPro-Bold', sans-serif;
+font-family: 'KozGoPro-Heavy', sans-serif;
 color:#333333;
 font-size:28px;
 }
@@ -247,15 +252,43 @@ margin-bottom:25px;
 .bodytitle2{
     font-family: 'OpenSans-Bold', sans-serif;
     color:#f65314;
-    font-size:36px;
+    font-size:26px;
 }
 
 
 .bodytitle{
-    font-family: 'KozGoPro-Bold', sans-serif;
+    font-family: 'KozGoPro-Medium', sans-serif;
     color:#f65314;
     font-size:32px;
 }
+
+.faqfont{
+font-family: 'OpenSans', sans-serif;
+color:#373737;
+font-size:18px;
+line-height:150%;
+}
+
+.faqtitle2{
+    font-family: 'OpenSans-Bold', sans-serif;
+    color:#f65314;
+    font-size:19px;
+}
+
+
+.faqtitle{
+    font-family: 'KozGoPro-Light', sans-serif;
+    color:#f65314;
+    font-size:27px;
+}
+
+.bodytitle3{
+line-height:120%;
+font-size:27px;
+color:#ef4f11;
+font-family: 'KozGoPro-SemiBold', sans-serif;
+}
+
 .bodytitlewhite{
     font-family: 'KozGoPro-Bold', sans-serif;
     color:#ffffff;
@@ -458,9 +491,9 @@ font-size:20px;
 
 .inlinelink{
 margin-left:20px;
-font-family: 'OpenSans', sans-serif;
+font-family: 'OpenSans-Bold', sans-serif;
 color:#373737;
-font-size:16px;
+font-size:18px;
 }
 
 .styled-select select {
