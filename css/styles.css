@@ -10,6 +10,11 @@
 }
 
 @font-face {
+    font-family: 'OpenSans-Italic';
+    src: url('fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
     font-family: 'OpenSans-Light';
     src: url('fonts/OpenSans/OpenSans-Light.ttf');
 	font-weight: lighter;
@@ -110,6 +115,13 @@
 		white-space: nowrap;
 	}​
 }
+.navbar-fixed-top {
+ 
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+  position: relative; /* this can also be static */
+}
 
 .navbar .navbar-nav  :hover{
   text-decoration:underline;
@@ -127,6 +139,13 @@ text-align:center;
 font-family: 'KozGoPro-Light', sans-serif;
 color:#f65314;
 font-size:32px;
+}
+
+.fa-ul>li:before {    
+font-family: 'FontAwesome';
+content: "\f054";
+margin:0 5px 0 -35px;
+color:#373737;
 }
 
    .headertitle1{
@@ -155,6 +174,7 @@ font-family: 'OpenSans', sans-serif;
 color:#373737;
 font-size:18px;
 line-height:150%;
+margin-bottom:25px;
 }
 
 .guarantee{
@@ -175,20 +195,26 @@ padding-right:0px;
 }
 
 .quote{
-margin-left:5%;
-margin-right:5%;
-line-height: 160%;
-text-align:center;
-font-family: 'OpenSans', sans-serif;
+display:block;
+margin-left:auto;
+margin-right:auto;
+width:70%;
+line-height: 170%;
+text-align:left;
+font-family: 'OpenSans-Italic', sans-serif;
 color:#525252;
-font-size:16px;
+font-size:17px;
 }
 
 .quoteperson{
-margin-left:10%;
+display:block;
+margin-left:auto;
+margin-right:auto;
+width:70%;
 font-family: 'OpenSans-Bold', sans-serif;
 color:#525252;
-font-size:16px;
+font-size:17px;
+margin-top:20px;
 }
 
 .testimonialtitle{
@@ -431,14 +457,23 @@ td{
 .hrline1{
 height:1px;
 background:#BCBCBC;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
 .hrline2{
-width:100px;
-height:1px;
-background:#BCBCBC;
-margin-bottom:30px;
+height:10px;
+width:183px;
+background:url('../img/hrline.png') no-repeat top center;
+margin-bottom:40px;
+border:none !important;
+}
+
+.hrline3{
+height:11px;
+width:185px;
+background:url('../img/hrline2.png') no-repeat top center;
+margin-bottom:10px;
+border:none !important;
 }
 .linkicon{
 color:grey;

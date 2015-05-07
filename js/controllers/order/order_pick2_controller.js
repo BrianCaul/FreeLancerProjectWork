@@ -2,10 +2,11 @@
 
 define(['js/app'], function(app) {
 
-    var injectParams = ['$scope'];
+    var injectParams = ['$scope','$location','$anchorScroll'];
 
-    var order_pick2_controller = function($scope) {
-	
+    var order_pick2_controller = function($scope,$location,$anchorScroll) {
+      $location.hash('table');
+      $anchorScroll();
 	  
 	
     };
