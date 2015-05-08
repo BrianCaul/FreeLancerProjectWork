@@ -6,8 +6,7 @@
 	  
       <!-- Page title set in pageTitle directive -->
       <title page-title></title>
-	  <meta name="generator" content="Bootply" />
-	  <meta name="viewport" content="width=device-width">
+	  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
       <!-- Bootstrap and Fonts -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="vendors/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -30,7 +29,7 @@
 			<div ng-if="$root.hideStuff" ng-include="'templates/common/navigation.html'"></div>
             <hr ng-if="!$root.hideStuff" style="border-color:white;height:1px;width:100%;box-shadow: 1px 5px 5px #888888;">
             <!--Main Content Container -->
-			<div data-ng-view id="ng-view" ></div>
+			<div data-ng-view id="ng-view" style="overflow-x: hidden"></div>
             <!-- Footer -->
 			<div ng-if="$root.hideStuff" ng-include="'templates/common/footer2.html'"></div>
             <div ng-include="'templates/common/footer.html'"></div>
